@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <title>DragonCoin (DRC) — 官方网站</title>
-  <meta name="description" content="DragonCoin (DRC)：面向社区与实用场景的加密资产（BEP-20 · BNB Smart Chain）。查看愿景、官方链接、合约与白皮书。" />
+  <title>DragonCoin (DRC) — Official Site</title>
+  <meta name="description" content="DragonCoin (DRC): a community-driven, utility-focused BEP-20 token on BNB Smart Chain. See vision, official links, contract and whitepaper." />
   <link rel="canonical" href="https://dragoncoin.fun/" />
 
   <!-- Icons -->
@@ -14,17 +14,37 @@
 
   <!-- OG / Twitter -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="DragonCoin (DRC) — 官方网站" />
-  <meta property="og:description" content="面向社区与实用场景的加密资产，构建有温度的链上价值网络。" />
+  <meta property="og:title" content="DragonCoin (DRC) — Official Site" />
+  <meta property="og:description" content="A warm, community-facing on-chain value network on BNB Smart Chain." />
   <meta property="og:url" content="https://dragoncoin.fun/" />
   <meta property="og:image" content="https://dragoncoin.fun/dragoncoin_logo_3d_dark.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="DragonCoin (DRC) — 官方网站" />
-  <meta name="twitter:description" content="面向社区与实用场景的加密资产，构建有温度的链上价值网络。" />
+  <meta name="twitter:title" content="DragonCoin (DRC) — Official Site" />
+  <meta name="twitter:description" content="A warm, community-facing on-chain value network on BNB Smart Chain." />
   <meta name="twitter:image" content="https://dragoncoin.fun/dragoncoin_logo_3d_dark.png" />
 
-  <!-- Style -->
+  <!-- Global CSS -->
   <link rel="stylesheet" href="/assets/style.css" />
+
+  <!-- Small override for homepage logo -->
+  <style>
+    .hero img.banner {
+      display: block;
+      margin: 0 auto 16px;
+      width: auto;
+      max-width: 360px;   /* adjust here if still too big */
+      max-height: 160px;
+      object-fit: contain;
+      border-radius: 12px;
+      opacity: 0.96;
+    }
+    @media (max-width: 480px) {
+      .hero img.banner {
+        max-width: 280px;
+        max-height: 140px;
+      }
+    }
+  </style>
 
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -55,8 +75,8 @@
         <a class="btn" href="/whitepaper.html">Whitepaper</a>
         <a class="btn" href="https://x.com/DragonCoinDRC" target="_blank" rel="noopener">X</a>
         <div class="lang" role="tablist">
-          <button id="lang-zh" class="active" aria-selected="true">中文</button>
-          <button id="lang-en" aria-selected="false">EN</button>
+          <button id="lang-zh" aria-selected="false">中文</button>
+          <button id="lang-en" class="active" aria-selected="true">EN</button>
         </div>
       </div>
     </nav>
@@ -64,14 +84,14 @@
     <!-- Hero -->
     <header class="hero">
       <img class="banner" src="/dragoncoin_logo_3d_dark.png" alt="DragonCoin Banner" />
-      <h1 data-i18n="about_title">关于 DragonCoin (DRC)</h1>
-      <p data-i18n="about_sub">面向社区与实用场景的加密资产，构建有温度的链上价值网络。</p>
+      <h1 data-i18n="about_title">About DragonCoin (DRC)</h1>
+      <p data-i18n="about_sub">A community-driven crypto asset building a warm, useful on-chain value network.</p>
 
       <div class="kpi">
         <div class="card">
           <div class="pill">BEP-20 · BNB Smart Chain</div>
           <div style="margin-top:8px;font-size:14px;color:var(--muted)" data-i18n="about_chain">
-            合约已部署至 BSC，兼容主流钱包与工具链。
+            Deployed on BNB Smart Chain, compatible with major wallets and toolchains.
           </div>
         </div>
         <div class="card">
@@ -91,52 +111,71 @@
       </div>
 
       <div class="cta">
-        <a class="btn primary" href="/whitepaper.html" data-i18n="cta_read_wp">查看白皮书</a>
-        <a class="btn" href="https://x.com/DragonCoinDRC" target="_blank" rel="noopener" data-i18n="cta_follow_x">关注 X（Twitter）</a>
-        <a class="btn" href="https://bscscan.com/token/0x434c37ede897686f747d5c83cd4a79561e527db4" target="_blank" rel="noopener" data-i18n="cta_view_bsc">查看 BscScan</a>
+        <a class="btn primary" href="/whitepaper.html" data-i18n="cta_read_wp">Read Whitepaper</a>
+        <a class="btn" href="https://x.com/DragonCoinDRC" target="_blank" rel="noopener" data-i18n="cta_follow_x">Follow on X</a>
+        <a class="btn" href="https://bscscan.com/token/0x434c37ede897686f747d5c83cd4a79561e527db4" target="_blank" rel="noopener" data-i18n="cta_view_bsc">View on BscScan</a>
       </div>
     </header>
 
-    <!-- 公告条 -->
+    <!-- Notice / Audit -->
     <section class="header" style="margin-top:12px">
       <div class="badge">BEP-20 · BNB Smart Chain</div>
       <div class="badge">Contract:
         <a class="mono" href="https://bscscan.com/token/0x434c37ede897686f747d5c83cd4a79561e527db4" target="_blank" rel="noopener">0x434c…7db4</a>
       </div>
-      <h2 style="margin:12px 0 6px">官方公告 / 审核进度</h2>
-      <p class="muted" style="margin:0">最后更新：2025-10-24</p>
+      <h2 style="margin:12px 0 6px" data-i18n="notice_title">Official notice / BscScan review</h2>
+      <p class="muted" style="margin:0" data-i18n="notice_update">Last updated: 2025-10-24</p>
 
       <div class="card" style="margin-top:14px">
-        <p class="muted">我们已向 BscScan 提交资料，正在补充官网与社交关联。以下为官方链接的集中展示：</p>
+        <p class="muted" data-i18n="notice_text">
+          We have submitted the token info to BscScan and are adding official pages and social proof. Below are the official links for verification:
+        </p>
         <ul class="list" style="margin-top:8px">
-          <li>Website：<a href="https://dragoncoin.fun" target="_blank" rel="noopener">dragoncoin.fun</a></li>
-          <li>X (Twitter)：<a href="https://x.com/DragonCoinDRC" target="_blank" rel="noopener">@DragonCoinDRC</a></li>
-          <li>Email：<a href="mailto:contact@dragoncoin.fun">contact@dragoncoin.fun</a></li>
-          <li>Contract：
+          <li>Website: <a href="https://dragoncoin.fun" target="_blank" rel="noopener">dragoncoin.fun</a></li>
+          <li>X (Twitter): <a href="https://x.com/DragonCoinDRC" target="_blank" rel="noopener">@DragonCoinDRC</a></li>
+          <li>Email: <a href="mailto:contact@dragoncoin.fun">contact@dragoncoin.fun</a></li>
+          <li>Contract:
             <a class="mono" href="https://bscscan.com/token/0x434c37ede897686f747d5c83cd4a79561e527db4" target="_blank" rel="noopener">0x434c…7db4</a>
           </li>
         </ul>
+        <div class="cta">
+          <a class="btn primary" href="/whitepaper.html" data-i18n="cta_view_wp2">Whitepaper</a>
+          <a class="btn" href="https://x.com/DragonCoinDRC" target="_blank" rel="noopener" data-i18n="cta_follow_x2">Follow on X</a>
+          <a class="btn" href="mailto:contact@dragoncoin.fun" data-i18n="cta_email">Official Email</a>
+        </div>
       </div>
     </section>
 
-    <!-- 内容区 -->
+    <!-- Info grid -->
     <section class="grid" style="margin-top:22px">
       <div class="card">
-        <h2 style="margin-top:0" data-i18n="sec_mission_t">愿景与使命</h2>
-        <p data-i18n="sec_mission_d">DragonCoin 的初心是把有趣、可持续、可落地的价值传递给社区。</p>
+        <h2 style="margin-top:0" data-i18n="sec_mission_t">Vision & Mission</h2>
+        <p data-i18n="sec_mission_d">
+          DragonCoin aims to deliver fun, sustainable and real-use value to the community, with transparency, open-source mindset and long-termism.
+        </p>
       </div>
       <div class="card">
-        <h2 style="margin-top:0" data-i18n="sec_brand_t">品牌与视觉</h2>
-        <p data-i18n="sec_brand_d">采用“龙”作为精神符号，配合深色霓虹视觉，传达力量与未来科技感。</p>
+        <h2 style="margin-top:0" data-i18n="sec_brand_t">Brand & Visuals</h2>
+        <p data-i18n="sec_brand_d">
+          Inspired by the oriental “dragon” to convey power and protection, combined with a neon-dark sci-fi visual for the crypto ecosystem.
+        </p>
       </div>
       <div class="card">
-        <h2 style="margin-top:0" data-i18n="sec_status_t">合规与资料</h2>
-        <p data-i18n="sec_status_d">我们已提交初审，正在补充页面与社交关联证明，可在此验证官方链接。</p>
+        <h2 style="margin-top:0" data-i18n="sec_status_t">Compliance & References</h2>
+        <p data-i18n="sec_status_d">
+          BscScan submission completed. We are adding official pages, social links and email proof. You can verify all official links here.
+        </p>
       </div>
       <div class="card">
-        <h2 style="margin-top:0" data-i18n="sec_faq_t">常见问题</h2>
-        <details open><summary data-i18n="faq_1_q">DRC 是什么？</summary><p data-i18n="faq_1_a">DRC 是部署在 BNB Smart Chain 的 BEP-20 代币，专注社区与实用场景建设。</p></details>
-        <details><summary data-i18n="faq_2_q">如何关注项目进展？</summary><p data-i18n="faq_2_a">请关注我们的官方 X（Twitter）账号 <a href="https://x.com/DragonCoinDRC" target="_blank" rel="noopener">@DragonCoinDRC</a>。</p></details>
+        <h2 style="margin-top:0" data-i18n="sec_faq_t">FAQ</h2>
+        <details open>
+          <summary data-i18n="faq_1_q">What is DRC?</summary>
+          <p data-i18n="faq_1_a">DRC is a BEP-20 token on BNB Smart Chain focused on community and practical use cases.</p>
+        </details>
+        <details>
+          <summary data-i18n="faq_2_q">Where to get updates?</summary>
+          <p data-i18n="faq_2_a">Follow our official X (Twitter) account <a href="https://x.com/DragonCoinDRC" target="_blank" rel="noopener">@DragonCoinDRC</a>.</p>
+        </details>
       </div>
     </section>
 
@@ -151,13 +190,94 @@
   </div>
 
   <script>
+    // footer year
     document.getElementById('y').textContent = new Date().getFullYear();
-    const zh = {about_title:"关于 DragonCoin (DRC)",about_sub:"面向社区与实用场景的加密资产，构建有温度的链上价值网络。"};
-    const en = {about_title:"About DragonCoin (DRC)",about_sub:"A community-driven crypto asset building a useful on-chain value network."};
-    const t=(d)=>{document.querySelectorAll("[data-i18n]").forEach(el=>{const k=el.dataset.i18n;if(d[k])el.textContent=d[k];});};
-    const zhBtn=document.getElementById('lang-zh'),enBtn=document.getElementById('lang-en');
-    zhBtn.onclick=()=>{t(zh);zhBtn.classList.add("active");enBtn.classList.remove("active");};
-    enBtn.onclick=()=>{t(en);enBtn.classList.add("active");zhBtn.classList.remove("active");};
+
+    // i18n dictionaries
+    const zh = {
+      about_title: "关于 DragonCoin (DRC)",
+      about_sub: "面向社区与实用场景的加密资产，构建有温度的链上价值网络。",
+      about_chain: "合约已部署至 BSC，兼容主流钱包与工具链。",
+      cta_read_wp: "查看白皮书",
+      cta_follow_x: "关注 X（Twitter）",
+      cta_view_bsc: "查看 BscScan",
+      notice_title: "官方公告 / 审核进度",
+      notice_update: "最后更新：2025-10-24",
+      notice_text: "我们已向 BscScan 提交资料，正在补充官网与社交关联。以下为官方链接的集中展示：",
+      cta_view_wp2: "白皮书",
+      cta_follow_x2: "关注 X",
+      cta_email: "联系邮箱",
+      sec_mission_t: "愿景与使命",
+      sec_mission_d: "DragonCoin 的初心是把有趣、可持续、可落地的价值传递给社区。我们坚持透明、开源与长期主义，持续打磨代币的实用性与品牌影响力。",
+      sec_brand_t: "品牌与视觉",
+      sec_brand_d: "采用“龙”作为精神符号，配合深色霓虹视觉，传达力量与未来科技感。",
+      sec_status_t: "合规与资料",
+      sec_status_d: "我们已提交初审，正在补充官方网站页面、社交账号与邮箱等关联性证明。你可在此页面验证官方链接。",
+      sec_faq_t: "常见问题",
+      faq_1_q: "DRC 是什么？",
+      faq_1_a: "DRC 是部署在 BNB Smart Chain 的 BEP-20 代币，专注社区与实用场景建设。",
+      faq_2_q: "如何获取最新更新？",
+      faq_2_a: "请关注我们的官方 X（Twitter）账号 @DragonCoinDRC。"
+    };
+
+    const en = {
+      about_title: "About DragonCoin (DRC)",
+      about_sub: "A community-driven crypto asset building a warm, useful on-chain value network.",
+      about_chain: "Deployed on BNB Smart Chain, compatible with major wallets and toolchains.",
+      cta_read_wp: "Read Whitepaper",
+      cta_follow_x: "Follow on X",
+      cta_view_bsc: "View on BscScan",
+      notice_title: "Official notice / BscScan review",
+      notice_update: "Last updated: 2025-10-24",
+      notice_text: "We have submitted the token info to BscScan and are adding official pages and social proof. Below are the official links for verification:",
+      cta_view_wp2: "Whitepaper",
+      cta_follow_x2: "Follow on X",
+      cta_email: "Official Email",
+      sec_mission_t: "Vision & Mission",
+      sec_mission_d: "DragonCoin aims to deliver fun, sustainable and real-use value to the community, with transparency, open-source mindset and long-termism.",
+      sec_brand_t: "Brand & Visuals",
+      sec_brand_d: "Inspired by the oriental “dragon” to convey power and protection, combined with a neon-dark sci-fi visual.",
+      sec_status_t: "Compliance & References",
+      sec_status_d: "BscScan submission completed. You can verify all official links here.",
+      sec_faq_t: "FAQ",
+      faq_1_q: "What is DRC?",
+      faq_1_a: "DRC is a BEP-20 token on BNB Smart Chain focused on community and practical use cases.",
+      faq_2_q: "Where to get updates?",
+      faq_2_a: "Follow our official X (Twitter) account @DragonCoinDRC."
+    };
+
+    const t = (dict) => {
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const k = el.getAttribute("data-i18n");
+        if (dict[k]) el.textContent = dict[k];
+      });
+    };
+
+    const zhBtn = document.getElementById('lang-zh');
+    const enBtn = document.getElementById('lang-en');
+
+    zhBtn.onclick = () => {
+      t(zh);
+      zhBtn.classList.add("active");
+      zhBtn.setAttribute("aria-selected","true");
+      enBtn.classList.remove("active");
+      enBtn.setAttribute("aria-selected","false");
+    };
+
+    enBtn.onclick = () => {
+      t(en);
+      enBtn.classList.add("active");
+      enBtn.setAttribute("aria-selected","true");
+      zhBtn.classList.remove("active");
+      zhBtn.setAttribute("aria-selected","false");
+    };
+
+    // ✅ default to EN on load
+    t(en);
+    enBtn.classList.add("active");
+    enBtn.setAttribute("aria-selected","true");
+    zhBtn.classList.remove("active");
+    zhBtn.setAttribute("aria-selected","false");
   </script>
 </body>
 </html>
