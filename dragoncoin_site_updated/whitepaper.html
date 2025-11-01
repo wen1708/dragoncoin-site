@@ -1,168 +1,104 @@
-<!doctype html>
-<html lang="zh-CN">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <title>Whitepaper | DragonCoin (DRC)</title>
-  <meta name="description" content="DragonCoin (DRC) 白皮书占位页面：结构大纲与即将发布说明。" />
-  <link rel="canonical" href="https://dragoncoin.fun/whitepaper.html" />
-
-  <!-- Favicon & Icons -->
-  <link rel="icon" href="/favicon.ico" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="apple-touch-icon" href="/dragoncoin_token_icon_512.png" />
-
-  <!-- Open Graph / Twitter -->
-  <meta property="og:type" content="article" />
-  <meta property="og:title" content="Whitepaper | DragonCoin (DRC)" />
-  <meta property="og:description" content="DragonCoin (DRC) 白皮书占位页面：结构大纲与即将发布说明。" />
-  <meta property="og:url" content="https://dragoncoin.fun/whitepaper.html" />
-  <meta property="og:image" content="https://dragoncoin.fun/dragoncoin_logo_3d_dark.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Whitepaper | DragonCoin (DRC)" />
-  <meta name="twitter:description" content="DragonCoin (DRC) 白皮书占位页面：结构大纲与即将发布说明。" />
-  <meta name="twitter:image" content="https://dragoncoin.fun/dragoncoin_logo_3d_dark.png" />
-
-  <link rel="stylesheet" href="/assets/style.css" />
-  <style>
-    :root{--bg:#0a0b10;--card:#0f111a;--txt:#e6e6f0;--muted:#a2a7b7;--brand:#6de2ff;--brand-2:#9b6dff;--border:rgba(255,255,255,.08);--ring:rgba(109,226,255,.35);--shadow:0 10px 40px rgba(109,226,255,.12), inset 0 0 0 1px var(--border)}
-    html,body{background:var(--bg);color:var(--txt);margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,PingFang SC,Helvetica Neue,Arial,"Noto Sans"}
-    a{color:var(--brand);text-decoration:none}
-    .wrap{max-width:900px;margin:0 auto;padding:24px}
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 0}
-    .nav a.logo{display:flex;align-items:center;gap:12px;font-weight:700}
-    .nav img{height:28px;width:auto}
-    .btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border);padding:10px 14px;border-radius:14px;background:linear-gradient(180deg,#121423,#0b0c13);box-shadow:var(--shadow)}
-    .lang{border:1px solid var(--border);border-radius:12px;overflow:hidden;display:flex}
-    .lang button{background:transparent;color:var(--txt);padding:8px 12px;border:0;cursor:pointer}
-    .lang button.active{background:linear-gradient(90deg,rgba(109,226,255,.15),rgba(155,109,255,.15));box-shadow:inset 0 0 0 1px var(--ring)}
-    .header{border:1px solid var(--border);border-radius:22px;padding:28px;background:
-      radial-gradient(1000px 400px at 10% -10%,rgba(109,226,255,.18),transparent 40%),
-      radial-gradient(1000px 400px at 90% -10%,rgba(155,109,255,.18),transparent 40%),
-      linear-gradient(180deg,#0c0e18,#0a0b10)}
-    .badge{display:inline-block;font-size:12px;padding:4px 10px;border-radius:999px;border:1px solid var(--border);background:rgba(255,255,255,.03);margin-right:8px}
-    .card{border:1px solid var(--border);border-radius:18px;padding:20px;background:linear-gradient(180deg,#0d0f1a,#0b0d15);box-shadow:var(--shadow);margin-top:16px}
-    .mono{font-family:ui-monospace,SFMono-Regular,Consolas,Menlo,monospace}
-    .list>li{margin:6px 0}
-    .footer{margin:36px 0 16px;color:var(--muted);font-size:14px}
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DragonCoin (DRC) — Whitepaper</title>
+  <meta name="description" content="DragonCoin (DRC) Whitepaper — A community-driven value network built on the BNB Smart Chain.">
+  <link rel="icon" href="favicon.svg">
+  <link rel="stylesheet" href="/assets/style.css">
 </head>
+
 <body>
   <div class="wrap">
-    <!-- Nav -->
+    <!-- ===== NAV ===== -->
     <nav class="nav">
-      <a class="logo" href="/"><img src="/favicon.svg" alt="DRC" /><span>DragonCoin</span></a>
-      <div style="display:flex;gap:12px;flex-wrap:wrap">
-        <a class="btn" href="/">Home</a>
-        <a class="btn" href="/about.html">About</a>
-        <a class="btn" aria-current="page" href="/whitepaper.html">Whitepaper</a>
-        <a class="btn" href="https://x.com/DragonCoinDRC" target="_blank" rel="noopener">X</a>
-        <div class="lang">
-          <button id="lang-zh" class="active" aria-selected="true">中文</button>
-          <button id="lang-en" aria-selected="false">EN</button>
-        </div>
+      <div class="logo">
+        <img src="dragoncoin_token_icon_512.png" alt="DragonCoin Logo">
+        DragonCoin
+      </div>
+      <div class="links">
+        <a href="index.html" class="btn">Home</a>
+        <a href="about.html" class="btn">About</a>
+        <a href="whitepaper.html" class="btn" aria-current="page">Whitepaper</a>
+        <a href="https://x.com/DragonCoinDRC" target="_blank" class="btn">X</a>
+      </div>
+      <div class="lang">
+        <button class="active">EN</button>
+        <button onclick="window.location.href='whitepaper_cn.html'">中文</button>
       </div>
     </nav>
 
-    <!-- Header -->
-    <header class="header">
-      <div class="badge">BEP-20 · BNB Smart Chain</div>
-      <div class="badge">Contract: <a class="mono" href="https://bscscan.com/token/0x434c37ede897686f747d5c83cd4a79561e527db4" target="_blank" rel="noopener">0x434c…7db4</a></div>
-      <h1 style="margin:12px 0 6px" data-i18n="wp_title">DragonCoin 白皮书</h1>
-      <p style="color:var(--muted);margin:0" data-i18n="wp_sub">占位页面 · 完整版即将发布</p>
-    </header>
-
-    <!-- Placeholder Notice -->
-    <section class="card">
-      <h2 style="margin-top:0" data-i18n="wp_status_t">发布状态</h2>
-      <p data-i18n="wp_status_d">
-        白皮书正在完善中。当前页用于对外提供结构大纲与官方链接，作为 BscScan 审核的关联性证明。
-      </p>
-      <ul class="list">
-        <li>Website：<a href="https://dragoncoin.fun" target="_blank" rel="noopener">dragoncoin.fun</a></li>
-        <li>X (Twitter)：<a href="https://x.com/DragonCoinDRC" target="_blank" rel="noopener">@DragonCoinDRC</a></li>
-        <li>Email：<a href="mailto:contact@dragoncoin.fun">contact@dragoncoin.fun</a></li>
-      </ul>
-      <!-- 若未来提供 PDF，可在此解开注释：
-      <p><a class="btn" href="/assets/DragonCoin_Whitepaper_v1.pdf" target="_blank" rel="noopener">Download PDF</a></p>
-      -->
-    </section>
-
-    <!-- Outline -->
-    <section class="card">
-      <h2 style="margin-top:0" data-i18n="wp_outline_t">白皮书大纲（预览）</h2>
-      <ol class="list">
-        <li data-i18n="wpo_1">引言与愿景</li>
-        <li data-i18n="wpo_2">代币经济学（代币用途、持有激励、流通与销毁机制）</li>
-        <li data-i18n="wpo_3">技术与安全（合约标准、审计计划、风控）</li>
-        <li data-i18n="wpo_4">生态与应用场景（合作、工具、社区激励）</li>
-        <li data-i18n="wpo_5">路线图与里程碑</li>
-        <li data-i18n="wpo_6">治理与透明度（信息披露、提案流程）</li>
-        <li data-i18n="wpo_7">风险提示与合规声明</li>
-      </ol>
-      <p style="margin-top:10px;color:var(--muted)" data-i18n="wp_outline_note">
-        注：以上结构可能随版本演进而调整，最终以正式版为准。
-      </p>
-    </section>
-
-    <!-- CTA -->
-    <section class="card">
-      <h2 style="margin-top:0" data-i18n="wp_follow_t">关注更新</h2>
-      <p data-i18n="wp_follow_d">关注我们的 X（Twitter）以获取第一时间发布：</p>
-      <p><a class="btn" href="https://x.com/DragonCoinDRC" target="_blank" rel="noopener">@DragonCoinDRC</a></p>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-      <div>© <span id="y"></span> DragonCoin ·
-        <a class="mono" href="https://bscscan.com/token/0x434c37ede897686f747d5c83cd4a79561e527db4" target="_blank" rel="noopener">0x434c…7db4</a> ·
-        <a href="mailto:contact@dragoncoin.fun">contact@dragoncoin.fun</a> ·
-        <a href="https://x.com/DragonCoinDRC" target="_blank" rel="noopener">X</a>
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+      <img src="dragoncoin_logo_3d_dark.png" alt="DragonCoin Logo Banner" class="banner float-up">
+      <h1>DragonCoin (DRC) — Official Whitepaper</h1>
+      <p class="muted">Empowering a transparent, community-driven future on BNB Smart Chain.</p>
+      <div class="cta">
+        <a href="https://bscscan.com/token/0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b" target="_blank" class="btn primary">View on BscScan</a>
+        <a href="https://x.com/DragonCoinDRC" target="_blank" class="btn">Follow on X</a>
       </div>
+    </section>
+
+    <!-- ===== WHITEPAPER CONTENT ===== -->
+    <section class="header">
+      <div class="card">
+        <h2>Introduction</h2>
+        <p><strong>English:</strong><br>
+        <strong>DragonCoin (DRC)</strong> is a community-driven digital value network built on the <strong>BNB Smart Chain (BEP-20)</strong>.
+        Its mission is to bridge blockchain technology with real human trust — creating a transparent, fair, and collaborative ecosystem where value flows freely between creators and communities.<br><br>
+        DragonCoin focuses on transparency, accessibility, and long-term sustainability, empowering holders to participate in the decentralized future together.</p>
+
+        <p><strong>中文：</strong><br>
+        <strong>龙币（DragonCoin, DRC）</strong> 是建立在 <strong>BNB 智能链（BEP-20）</strong> 上的社区驱动型数字价值网络。<br>
+        项目的核心使命是将区块链技术与真实的信任连接起来，打造一个透明、公平、共建的去中心化生态，让价值在创作者与社区之间自由流动。<br><br>
+        DragonCoin 专注于透明度、可参与性与长期可持续发展，致力于让每位持币者共同参与链上未来。</p>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <h3>Token Overview</h3>
+        <ul class="list">
+          <li><strong>Token Name:</strong> DragonCoin (DRC)</li>
+          <li><strong>Standard:</strong> BEP-20 (BNB Smart Chain)</li>
+          <li><strong>Contract Address:</strong> <span class="mono">0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b</span></li>
+          <li><strong>Total Supply:</strong> Fixed supply (details to be published in final version)</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Core Principles</h3>
+        <ul class="list">
+          <li>🌐 Transparency in tokenomics and governance</li>
+          <li>🤝 Community-first development model</li>
+          <li>🔒 Security through verified smart contracts</li>
+          <li>💡 Long-term vision for decentralized participation</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="header">
+      <div class="card">
+        <h3>Roadmap (Preview)</h3>
+        <ul class="list">
+          <li>✅ Website and brand relaunch</li>
+          <li>✅ Initial BscScan verification process</li>
+          <li>🚧 Full Whitepaper v1.0 development</li>
+          <li>🚀 Community and ecosystem expansion (Q4 2025)</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+      <p>© 2025 DragonCoin (DRC). All rights reserved.</p>
+      <p>
+        <a href="mailto:contact@dragoncoin.fun">contact@dragoncoin.fun</a> |
+        <a href="https://bscscan.com/token/0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b" target="_blank">BscScan</a> |
+        <a href="https://x.com/DragonCoinDRC" target="_blank">X (Twitter)</a>
+      </p>
     </footer>
   </div>
-
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-
-    const zh = {
-      wp_title: "DragonCoin 白皮书",
-      wp_sub: "占位页面 · 完整版即将发布",
-      wp_status_t: "发布状态",
-      wp_status_d: "白皮书正在完善中。当前页用于对外提供结构大纲与官方链接，作为 BscScan 审核的关联性证明。",
-      wp_outline_t: "白皮书大纲（预览）",
-      wpo_1: "引言与愿景",
-      wpo_2: "代币经济学（代币用途、持有激励、流通与销毁机制）",
-      wpo_3: "技术与安全（合约标准、审计计划、风控）",
-      wpo_4: "生态与应用场景（合作、工具、社区激励）",
-      wpo_5: "路线图与里程碑",
-      wpo_6: "治理与透明度（信息披露、提案流程）",
-      wpo_7: "风险提示与合规声明",
-      wp_outline_note: "注：以上结构可能随版本演进而调整，最终以正式版为准。",
-      wp_follow_t: "关注更新",
-      wp_follow_d: "关注我们的 X（Twitter）以获取第一时间发布："
-    };
-    const en = {
-      wp_title: "DragonCoin Whitepaper",
-      wp_sub: "Placeholder · Full version coming soon",
-      wp_status_t: "Release Status",
-      wp_status_d: "The whitepaper is under active development. This page provides the outline and official links for BscScan verification.",
-      wp_outline_t: "Outline (Preview)",
-      wpo_1: "Introduction & Vision",
-      wpo_2: "Tokenomics (utility, incentives, circulation & burn)",
-      wpo_3: "Technology & Security (standards, audit plan, risk control)",
-      wpo_4: "Ecosystem & Use Cases (partners, tools, community incentives)",
-      wpo_5: "Roadmap & Milestones",
-      wpo_6: "Governance & Transparency (disclosures, proposals)",
-      wpo_7: "Risk Disclosures & Compliance",
-      wp_outline_note: "Note: the structure may evolve; the final version prevails.",
-      wp_follow_t: "Follow Updates",
-      wp_follow_d: "Follow us on X (Twitter) for first releases:"
-    };
-    const t = (dict)=>{document.querySelectorAll("[data-i18n]").forEach(el=>{const k=el.getAttribute("data-i18n"); if(dict[k]) el.textContent=dict[k];});};
-    const zhBtn=document.getElementById('lang-zh'), enBtn=document.getElementById('lang-en');
-    zhBtn.onclick=()=>{ zhBtn.classList.add("active"); enBtn.classList.remove("active"); zhBtn.setAttribute("aria-selected","true"); enBtn.setAttribute("aria-selected","false"); t(zh); };
-    enBtn.onclick=()=>{ enBtn.classList.add("active"); zhBtn.classList.remove("active"); enBtn.setAttribute("aria-selected","true"); zhBtn.setAttribute("aria-selected","false"); t(en); };
-  </script>
 </body>
 </html>
