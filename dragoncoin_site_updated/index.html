@@ -15,9 +15,29 @@
   <link rel="stylesheet" href="/assets/style.css" />
 
   <style>
-    /* 导航 hover 增强 */
+    /* ===== 动画定义 ===== */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes floatUp {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+    @keyframes softGlow {
+      0%, 100% { box-shadow: 0 0 0 rgba(0,255,255,0); }
+      50% { box-shadow: 0 0 14px rgba(0,180,255,0.25); }
+    }
+
+    /* 页面进场 */
+    body .wrap {
+      animation: fadeInUp .55s ease-out;
+    }
+
+    /* ===== 导航样式（在你现在基础上加强） ===== */
     .nav {
       gap: 1.5rem;
+      backdrop-filter: blur(6px);
     }
     .logo {
       display: flex;
@@ -31,6 +51,7 @@
       height: 32px;
       width: auto;
       filter: drop-shadow(0 0 4px rgba(255,255,255,0.15));
+      animation: softGlow 5.5s ease-in-out infinite;
     }
     .nav .links {
       display: flex;
@@ -42,7 +63,7 @@
       font-size: 0.95rem;
       font-weight: 500;
       border-radius: 6px;
-      transition: background 0.18s ease, color 0.18s ease;
+      transition: background 0.18s ease, color 0.18s ease, transform 0.18s ease;
     }
     .nav .links .btn::after {
       content: "";
@@ -51,7 +72,7 @@
       right: 12px;
       bottom: -8px;
       height: 2px;
-      background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.45) 40%, rgba(255,255,255,0) 100%);
+      background: radial-gradient(circle, rgba(0,226,255,0.8) 0%, rgba(0,226,255,0) 75%);
       opacity: 0;
       transform: translateY(4px);
       transition: opacity 0.18s ease, transform 0.18s ease;
@@ -60,6 +81,7 @@
     .nav .links .btn:hover {
       background: rgba(255,255,255,0.06);
       color: #fff;
+      transform: translateY(-1px);
     }
     .nav .links .btn:hover::after {
       opacity: 1;
@@ -75,6 +97,7 @@
       transform: translateY(0);
     }
 
+    /* 语言按钮 */
     .lang {
       display: flex;
       gap: 6px;
@@ -88,20 +111,60 @@
       cursor: pointer;
       font-weight: 500;
       font-size: 0.8rem;
-      transition: background 0.15s;
+      transition: background 0.15s, transform 0.15s;
     }
     .lang button:hover {
       background: rgba(255,255,255,0.16);
+      transform: translateY(-1px);
     }
     .lang button.active {
       background: #fff;
       color: #000;
     }
 
-    /* hero 适当留白 */
+    /* ===== Hero 区动效 ===== */
+    .hero {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: -120px;
+      right: -160px;
+      width: 280px;
+      height: 280px;
+      background: radial-gradient(circle, rgba(0,226,255,0.25) 0%, rgba(0,226,255,0) 70%);
+      filter: blur(6px);
+      pointer-events: none;
+    }
     .hero img.banner {
       max-width: 360px;
       margin-bottom: 12px;
+      animation: floatUp 6s ease-in-out infinite;
+    }
+
+    /* CTA 动效 */
+    .cta .btn {
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+    .cta .btn.primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 24px rgba(0,0,0,0.25);
+    }
+
+    /* 卡片轻淡入 */
+    .grid .card,
+    .header .card {
+      animation: fadeInUp .55s ease-out;
+      animation-fill-mode: both;
+    }
+    .grid .card:nth-child(2) { animation-delay: .05s; }
+    .grid .card:nth-child(3) { animation-delay: .1s; }
+
+    @media (max-width: 720px) {
+      .nav { flex-wrap: wrap; }
+      .nav .links { flex-wrap: wrap; }
     }
   </style>
 </head>
@@ -160,7 +223,7 @@
       <div class="card">
         <h2>What is DragonCoin?</h2>
         <p>
-          DragonCoin (DRC) is a decentralized token brand built to be easily verified by explorers, exchanges and community members — via official website, official email, and an on-chain verified contract.
+          DragonCoin (DRC) is a decentralized token brand built to be easily verified by explorers, exchanges and community members via official website, official email, and an on-chain verified contract.
         </p>
       </div>
 
