@@ -4,125 +4,170 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DragonCoin (DRC) — Whitepaper</title>
-  <meta name="description" content="DragonCoin (DRC) Whitepaper — A community-driven value network built on the BNB Smart Chain.">
-  <link rel="icon" href="favicon.svg">
+  <meta name="description" content="DragonCoin (DRC) Whitepaper — a community-driven value network on BNB Smart Chain.">
+  <link rel="icon" href="/favicon.svg">
   <link rel="stylesheet" href="/assets/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "DragonCoin (DRC) Whitepaper",
+    "url": "https://dragoncoin.fun/whitepaper.html",
+    "about": "Community-driven token on BNB Smart Chain",
+    "creator": {
+      "@type": "Organization",
+      "name": "DragonCoin"
+    }
+  }
+  </script>
 </head>
-
 <body>
   <div class="wrap">
-    <!-- ===== NAV ===== -->
+    <!-- NAV -->
     <nav class="nav">
       <div class="logo">
-        <img src="dragoncoin_token_icon_512.png" alt="DragonCoin Logo">
+        <img src="/dragoncoin_token_icon_512.png" alt="DragonCoin Logo" />
         DragonCoin
       </div>
       <div class="links">
-        <a href="index.html" class="btn">Home</a>
-        <a href="about.html" class="btn">About</a>
-        <a href="whitepaper.html" class="btn" aria-current="page">Whitepaper</a>
+        <a href="/index.html" class="btn">Home</a>
+        <a href="/about.html" class="btn">About</a>
+        <a href="/whitepaper.html" class="btn" aria-current="page">Whitepaper</a>
         <a href="https://x.com/DragonCoinDRC" target="_blank" class="btn">X</a>
+      </div>
+      <!-- language switch -->
+      <div class="lang">
+        <button class="active" aria-selected="true">EN</button>
+        <button onclick="location.href='/whitepaper_cn.html'">中文</button>
       </div>
     </nav>
 
-    <!-- ===== HERO ===== -->
+    <!-- HERO -->
     <section class="hero">
-      <img src="dragoncoin_logo_3d_dark.png" alt="DragonCoin Logo Banner" class="banner float-up">
+      <img src="/dragoncoin_logo_3d_dark.png" alt="DragonCoin Banner" class="banner float-up" />
       <h1>DragonCoin (DRC) — Whitepaper Preview</h1>
       <p class="muted">Building a transparent, community-driven ecosystem on BNB Smart Chain.</p>
+      <div class="kpi">
+        <div class="card">
+          <div class="pill">Token</div>
+          <div class="mono">BEP-20 · BNB Smart Chain</div>
+        </div>
+        <div class="card">
+          <div class="pill">Contract</div>
+          <div class="mono">
+            0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b
+          </div>
+        </div>
+        <div class="card">
+          <div class="pill">Contact</div>
+          <div class="mono">
+            <a href="mailto:contact@dragoncoin.fun">contact@dragoncoin.fun</a>
+          </div>
+        </div>
+      </div>
       <div class="cta">
-        <a href="https://bscscan.com/token/0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b" target="_blank" class="btn primary">View on BscScan</a>
-        <a href="https://x.com/DragonCoinDRC" target="_blank" class="btn">Follow on X</a>
+        <a class="btn primary" href="https://bscscan.com/token/0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b" target="_blank" rel="noopener">View on BscScan</a>
+        <a class="btn" href="https://x.com/DragonCoinDRC" target="_blank" rel="noopener">Follow on X</a>
       </div>
     </section>
 
-    <!-- ===== INTRO ===== -->
-    <section class="header">
+    <!-- 1. Introduction -->
+    <section class="header" style="margin-top:20px">
       <div class="card">
         <h2>1. Introduction</h2>
-        <p><strong>English:</strong><br>
-        <strong>DragonCoin (DRC)</strong> is a community-driven digital value network built on the <strong>BNB Smart Chain (BEP-20)</strong>.  
-        Its mission is to bridge blockchain technology with human trust — creating a transparent, fair, and decentralized ecosystem where value flows freely between creators and communities.  
-        DragonCoin emphasizes transparency, accessibility, and sustainability, empowering holders to participate in a shared decentralized future.</p>
-
-        <p><strong>中文：</strong><br>
-        <strong>龙币（DragonCoin, DRC）</strong> 是建立在 <strong>BNB 智能链（BEP-20）</strong> 上的社区驱动型数字价值网络。  
-        我们的使命是将区块链技术与信任结合，打造一个透明、公平、去中心化的生态体系，让价值在创作者与社区之间自由流动。  
-        DragonCoin 专注于透明性、可参与性与长期可持续性，致力于让每位持币者共同构建未来。</p>
+        <p>
+          <strong>DragonCoin (DRC)</strong> is a community-driven digital value network built on the <strong>BNB Smart Chain (BEP-20)</strong>.
+          The project aims to connect blockchain technology with real users through transparency, openness, and long-term development.
+        </p>
+        <p>
+          This page serves as the <strong>public preview whitepaper</strong> to support ecosystem visibility and third-party verification (including BscScan review).
+          A full PDF whitepaper will be released after the token information is fully verified.
+        </p>
       </div>
     </section>
 
-    <!-- ===== ECOSYSTEM ===== -->
-    <section class="grid">
+    <!-- 2. Ecosystem -->
+    <section class="grid" style="margin-top:20px">
       <div class="card">
-        <h3>2. Ecosystem Overview</h3>
+        <h2>2. Ecosystem Overview</h2>
+        <p>
+          The DragonCoin ecosystem is designed around four layers:
+        </p>
         <ul class="list">
-          <li>🌐 <strong>Core Layer:</strong> DragonCoin token (DRC) as the foundation of value circulation within the ecosystem.</li>
-          <li>🤝 <strong>Community Layer:</strong> A decentralized community of participants, builders, and supporters.</li>
-          <li>🎨 <strong>Creative Layer:</strong> Future NFT integrations for identity, badges, and digital assets.</li>
-          <li>🧭 <strong>Transparency Layer:</strong> Verified smart contract and open governance process.</li>
+          <li><strong>Token Layer:</strong> DRC as the core unit of value in the ecosystem.</li>
+          <li><strong>Community Layer:</strong> holders, contributors, builders and partners.</li>
+          <li><strong>Creative / NFT Layer:</strong> future visual assets, badges, collectibles managed via the official OpenSea account.</li>
+          <li><strong>Transparency Layer:</strong> official website, social accounts, and on-chain data publicly verifiable at any time.</li>
         </ul>
-        <p><strong>中文说明：</strong>  
-        DragonCoin 生态由四个层级组成：代币层（价值核心）、社区层（共建参与）、创意层（NFT与视觉资产）、透明层（公开治理与合约验证）。</p>
+        <p class="muted" style="margin-top:6px;">
+          This version focuses on visibility and trust. Tokenomics, governance and technical specs will be added in v1.0.
+        </p>
       </div>
 
       <div class="card">
-        <h3>3. Token Overview</h3>
+        <h2>3. Token Overview</h2>
         <ul class="list">
-          <li><strong>Token Name:</strong> DragonCoin (DRC)</li>
-          <li><strong>Standard:</strong> BEP-20 (BNB Smart Chain)</li>
+          <li><strong>Token Name:</strong> DragonCoin</li>
+          <li><strong>Symbol:</strong> DRC</li>
+          <li><strong>Standard:</strong> BEP-20</li>
+          <li><strong>Network:</strong> BNB Smart Chain</li>
           <li><strong>Contract Address:</strong> <span class="mono">0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b</span></li>
-          <li><strong>Total Supply:</strong> Fixed supply (details to be announced in v1.0)</li>
+          <li><strong>Official Site:</strong> <a href="https://dragoncoin.fun" target="_blank" rel="noopener">https://dragoncoin.fun</a></li>
         </ul>
-        <p class="muted">All token data are verifiable on BscScan.</p>
+        <p class="muted" style="margin-top:6px">
+          If any information differs from on-chain data, the on-chain version always wins.
+        </p>
       </div>
     </section>
 
-    <!-- ===== VISION ===== -->
-    <section class="header">
+    <!-- 4. Vision & Roadmap -->
+    <section class="header" style="margin-top:20px">
       <div class="card">
-        <h3>4. Vision & Future Roadmap</h3>
+        <h2>4. Vision & Roadmap</h2>
+        <p>
+          DragonCoin’s vision is to become a recognizable, community-first token brand with verifiable on-chain identity.
+          We start from transparency (website + socials + email), then move to utility and ecosystem.
+        </p>
         <ul class="list">
-          <li>✅ Phase 1: Website & Identity Launch (Completed)</li>
-          <li>✅ Phase 2: BscScan Verification (In Progress)</li>
-          <li>🚧 Phase 3: Whitepaper v1.0 & Ecosystem Preview</li>
-          <li>🚀 Phase 4: Community Growth & NFT Integration (2025–2026)</li>
+          <li><strong>Phase 1 — Identity & Launch (Done):</strong> website live, domain verified, social created.</li>
+          <li><strong>Phase 2 — BscScan Verification (Ongoing):</strong> submit updated token info with official links.</li>
+          <li><strong>Phase 3 — Whitepaper v1.0:</strong> add tokenomics, governance, ecosystem partners.</li>
+          <li><strong>Phase 4 — Ecosystem Expansion:</strong> community incentives, NFT badges, integrations.</li>
         </ul>
-        <p><strong>中文说明：</strong>  
-        项目分为四个阶段：品牌与网站上线、合约验证、白皮书与生态展示、社区与 NFT 扩展。DragonCoin 将在 2025–2026 年间逐步构建去中心化生态网络。</p>
       </div>
     </section>
 
-    <!-- ===== COMMUNITY ===== -->
-    <section class="grid">
+    <!-- 5. Community & Governance -->
+    <section class="grid" style="margin-top:20px">
       <div class="card">
-        <h3>5. Community & Governance</h3>
-        <p><strong>English:</strong>  
-        DragonCoin encourages community participation through open communication and shared decision-making.  
-        Future governance proposals will be introduced for holders to contribute to project direction.</p>
-        <p><strong>中文：</strong>  
-        DragonCoin 鼓励社区通过开放沟通与共识参与项目决策。  
-        未来将引入治理提案机制，让持币者共同决定项目方向。</p>
+        <h2>5. Community & Governance</h2>
+        <p>
+          DragonCoin encourages open participation. Future versions will introduce proposal-based governance so that holders can co-create the roadmap.
+        </p>
+        <p>
+          Until the governance module is live, <strong>the official website and X (Twitter) account remain the single source of truth.</strong>
+        </p>
       </div>
 
       <div class="card">
-        <h3>6. Contact & Links</h3>
+        <h2>6. Official Links</h2>
         <ul class="list">
-          <li>🌐 Website: <a href="https://dragoncoin.fun" target="_blank">dragoncoin.fun</a></li>
-          <li>🐦 X (Twitter): <a href="https://x.com/DragonCoinDRC" target="_blank">@DragonCoinDRC</a></li>
+          <li>🌐 Website: <a href="https://dragoncoin.fun" target="_blank" rel="noopener">https://dragoncoin.fun</a></li>
+          <li>🐦 X (Twitter): <a href="https://x.com/DragonCoinDRC" target="_blank" rel="noopener">@DragonCoinDRC</a></li>
           <li>📧 Email: <a href="mailto:contact@dragoncoin.fun">contact@dragoncoin.fun</a></li>
-          <li>🔗 BscScan: <a href="https://bscscan.com/token/0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b" target="_blank">View Contract</a></li>
+          <li>🔗 BscScan: <a href="https://bscscan.com/token/0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b" target="_blank" rel="noopener">View Contract</a></li>
+          <li>🖼️ OpenSea (optional): official visual assets will be published under the DragonCoin account.</li>
         </ul>
       </div>
     </section>
 
-    <!-- ===== FOOTER ===== -->
+    <!-- FOOTER -->
     <footer class="footer">
       <p>© 2025 DragonCoin (DRC). All rights reserved.</p>
       <p>
-        <a href="mailto:contact@dragoncoin.fun">contact@dragoncoin.fun</a> |
-        <a href="https://x.com/DragonCoinDRC" target="_blank">X</a> |
-        <a href="https://bscscan.com/token/0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b" target="_blank">BscScan</a>
+        <a href="mailto:contact@dragoncoin.fun">contact@dragoncoin.fun</a> ·
+        <a href="https://x.com/DragonCoinDRC" target="_blank" rel="noopener">X</a> ·
+        <a href="https://bscscan.com/token/0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b" target="_blank" rel="noopener">BscScan</a>
       </p>
     </footer>
   </div>
