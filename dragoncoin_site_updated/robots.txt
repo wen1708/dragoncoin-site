@@ -2,6 +2,3 @@ User-agent: *
 Allow: /
 
 Sitemap: https://dragoncoin.fun/sitemap.xml
-
-# Extra metadata for BscScan and social validation
-Host: dragoncoin.fun
