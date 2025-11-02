@@ -12,10 +12,69 @@
   <meta name="theme-color" content="#0a0b10">
 
   <link rel="stylesheet" href="/assets/style.css" />
+
   <style>
-    .about-hero { padding-top: 28px; padding-bottom: 10px; text-align: left; }
-    .about-hero h1 { margin-bottom: 6px; }
-    .about-hero .muted { max-width: 720px; }
+    @keyframes fadeInUp { from {opacity:0;transform:translateY(16px);} to {opacity:1;transform:translateY(0);} }
+    @keyframes softGlow {0%,100%{box-shadow:0 0 0 rgba(0,255,255,0);}50%{box-shadow:0 0 14px rgba(0,180,255,0.25);} }
+
+    body .wrap { animation: fadeInUp .5s ease-out; }
+
+    .nav { gap: 1.5rem; backdrop-filter: blur(6px); }
+    .logo { display:flex; align-items:center; gap:6px; font-weight:600; font-size:1.05rem; }
+    .logo img { height:32px; filter:drop-shadow(0 0 4px rgba(255,255,255,.15)); animation: softGlow 5.5s ease-in-out infinite; }
+
+    .nav .links { display:flex; gap:10px; }
+    .nav .links .btn {
+      position:relative;
+      padding:6px 14px;
+      font-size:.95rem;
+      font-weight:500;
+      border-radius:6px;
+      transition:background .18s,color .18s,transform .18s;
+    }
+    .nav .links .btn::after {
+      content:"";
+      position:absolute;
+      left:12px; right:12px; bottom:-8px;
+      height:2px;
+      background:radial-gradient(circle, rgba(0,226,255,.8) 0%, rgba(0,226,255,0) 75%);
+      opacity:0;
+      transform:translateY(4px);
+      transition:opacity .18s, transform .18s;
+      border-radius:999px;
+    }
+    .nav .links .btn:hover {
+      background:rgba(255,255,255,.06);
+      color:#fff;
+      transform:translateY(-1px);
+    }
+    .nav .links .btn:hover::after { opacity:1; transform:translateY(0); }
+    .nav .links .btn[aria-current="page"] {
+      background:rgba(255,255,255,.08);
+      color:#fff;
+    }
+    .nav .links .btn[aria-current="page"]::after {
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    .lang { display:flex; gap:6px; }
+    .lang button {
+      background:rgba(255,255,255,.08);
+      border:none;
+      border-radius:6px;
+      padding:4px 10px;
+      color:#fff;
+      cursor:pointer;
+      font-weight:500;
+      font-size:.8rem;
+      transition:background .15s, transform .15s;
+    }
+    .lang button:hover { background:rgba(255,255,255,.16); transform:translateY(-1px); }
+    .lang button.active { background:#fff; color:#000; }
+
+    .about-hero { padding-top:28px; padding-bottom:10px; text-align:left; }
+    .about-hero .muted { max-width:720px; }
   </style>
 </head>
 <body>
@@ -23,11 +82,11 @@
     <!-- NAV -->
     <nav class="nav">
       <div class="logo">
-        <img src="/dragoncoin_token_icon_512.png" alt="DragonCoin Logo" />
+        <img src="/dragoncoin_token_icon_512.png" alt="DragonCoin Logo">
         DragonCoin
       </div>
       <div class="links">
-        <a href="/index.html" class="btn">首页</a>
+        <a href="/index_cn.html" class="btn">首页</a>
         <a href="/about_cn.html" class="btn" aria-current="page">关于</a>
         <a href="/whitepaper_cn.html" class="btn">白皮书</a>
         <a href="https://x.com/DragonCoinDRC" target="_blank" class="btn">X</a>
@@ -42,8 +101,8 @@
     <section class="hero about-hero">
       <h1>关于 DragonCoin (DRC)</h1>
       <p class="muted">
-        <strong>DragonCoin（DRC）</strong> 是部署在 <strong>BNB Smart Chain（BEP-20）</strong> 上的社区驱动型数字价值网络，
-        目标是通过公开透明的官网、合约和社交账号，让用户与审核方都能快速验证项目的真实性。
+        DragonCoin（DRC）是部署在 BNB Smart Chain（BEP-20）上的社区驱动型数字价值网络，
+        目标是让用户与审核方都能快速验证项目的真实性与一致性。
       </p>
       <div class="kpi" style="justify-content:flex-start;">
         <div class="card">
@@ -70,14 +129,15 @@
       <div class="card">
         <h2>1. 项目简介</h2>
         <p>
-          DragonCoin 希望先建立一个“可信的公开身份”，再逐步扩展到生态与应用。
-          因此当前阶段的重点是：官网 → About/Whitepaper → X → BscScan → OpenSea 账户。
+          当前阶段的 DragonCoin 重点不是功能，而是“可被验证的存在”：
+          官网上线 → About / Whitepaper 页面 → 官方 X → BscScan 项目信息同步。
+          这样无论是用户还是审核人员，都会知道这是同一个项目。
         </p>
       </div>
     </section>
 
     <!-- GRID -->
-    <section class="grid" style="margin-top: 20px;">
+    <section class="grid" style="margin-top:20px;">
       <div class="card">
         <h2>2. 基本信息</h2>
         <ul class="list">
@@ -86,54 +146,52 @@
           <li><strong>标准：</strong> BEP-20</li>
           <li><strong>区块链：</strong> BNB Smart Chain</li>
           <li><strong>合约地址：</strong> <span class="mono">0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b</span></li>
-          <li><strong>官网：</strong> <a href="https://dragoncoin.fun" target="_blank">https://dragoncoin.fun</a></li>
+          <li><strong>官网：</strong> <a href="https://dragoncoin.fun" target="_blank" rel="noopener">https://dragoncoin.fun</a></li>
           <li><strong>邮箱：</strong> <a href="mailto:contact@dragoncoin.fun">contact@dragoncoin.fun</a></li>
-          <li><strong>X：</strong> <a href="https://x.com/DragonCoinDRC" target="_blank">@DragonCoinDRC</a></li>
+          <li><strong>X：</strong> <a href="https://x.com/DragonCoinDRC" target="_blank" rel="noopener">@DragonCoinDRC</a></li>
         </ul>
       </div>
 
       <div class="card">
         <h2>3. 为什么用 BNB 链？</h2>
-        <p>
-          BNB 链手续费低、生态成熟、对代币浏览与审核支持比较完善，适合做公开透明的社区项目。
-          对你的 DragonCoin 来说，这能让 BscScan 更方便核对信息。
-        </p>
+        <p>手续费低、钱包兼容性高、BscScan 审核机制成熟，很适合当前这种“先做公开资料，再做功能”的项目路线。</p>
+        <p class="muted">之后也可以对接 OpenSea、钱包工具等生态。</p>
       </div>
     </section>
 
     <!-- SECTION 4 -->
-    <section class="header" style="margin-top: 20px;">
+    <section class="header" style="margin-top:20px;">
       <div class="card">
         <h2>4. 透明性</h2>
-        <p>为了让社区和审核方都能验证项目，官网会长期保持以下内容公开：</p>
+        <p>为了让项目被轻松验证，我们会长期保持下面几项公开：</p>
         <ul class="list">
-          <li>项目介绍（About）</li>
-          <li>白皮书（英文和中文分开）</li>
-          <li>官方邮箱和社交账号</li>
-          <li>合约地址和 BscScan 链接</li>
-          <li>官方 Logo / 图标文件</li>
+            <li>官网 About / Whitepaper 页面</li>
+            <li>官方 X 账号</li>
+            <li>同域名官方邮箱 contact@dragoncoin.fun</li>
+            <li>统一图标文件（favicon、token icon、横幅）</li>
+            <li>中英文分离页面，避免混乱</li>
         </ul>
       </div>
     </section>
 
     <!-- SECTION 5 -->
-    <section class="grid" style="margin-top: 20px;">
+    <section class="grid" style="margin-top:20px;">
       <div class="card">
         <h2>5. 路线图（预览）</h2>
         <ul class="list">
-          <li><strong>阶段 1：</strong> 品牌、域名、官网上线 ✅</li>
-          <li><strong>阶段 2：</strong> 向 BscScan 提交项目信息 ✅（等待人工）</li>
-          <li><strong>阶段 3：</strong> 补充白皮书正式版（含 Tokenomics）🚧</li>
-          <li><strong>阶段 4：</strong> 社区活动、NFT、合作接入 🚀</li>
+          <li><strong>阶段 1：</strong> 官网、域名、品牌 ✅</li>
+          <li><strong>阶段 2：</strong> 向 BscScan 提交资料 ✅（等待人工）</li>
+          <li><strong>阶段 3：</strong> 补充白皮书正式版（含 Tokenomics）</li>
+          <li><strong>阶段 4：</strong> 社区、NFT、合作接入</li>
         </ul>
       </div>
 
       <div class="card">
         <h2>6. 后续计划</h2>
-        <p>审核通过后将补充：</p>
+        <p>审核通过后，将陆续上线：</p>
         <ul class="list">
           <li>PDF 白皮书下载</li>
-          <li>官方 NFT / 纪念徽章</li>
+          <li>官方 NFT / 徽章</li>
           <li>社区提案通道</li>
         </ul>
       </div>
@@ -144,8 +202,8 @@
       <p>© 2025 DragonCoin (DRC). All rights reserved.</p>
       <p>
         <a href="mailto:contact@dragoncoin.fun">contact@dragoncoin.fun</a> ·
-        <a href="https://x.com/DragonCoinDRC" target="_blank">X</a> ·
-        <a href="https://bscscan.com/token/0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b" target="_blank">BscScan</a>
+        <a href="https://x.com/DragonCoinDRC" target="_blank" rel="noopener">X</a> ·
+        <a href="https://bscscan.com/token/0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b" target="_blank" rel="noopener">BscScan</a>
       </p>
     </footer>
   </div>

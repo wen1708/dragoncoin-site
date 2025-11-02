@@ -12,6 +12,75 @@
   <meta name="theme-color" content="#0a0b10">
 
   <link rel="stylesheet" href="/assets/style.css" />
+
+  <style>
+    @keyframes fadeInUp { from {opacity:0; transform:translateY(16px);} to {opacity:1; transform:translateY(0);} }
+    @keyframes floatUp {0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);} }
+    @keyframes softGlow {0%,100%{box-shadow:0 0 0 rgba(0,255,255,0);}50%{box-shadow:0 0 14px rgba(0,180,255,0.25);} }
+
+    body .wrap { animation: fadeInUp .5s ease-out; }
+    .nav { gap:1.5rem; backdrop-filter:blur(6px); }
+    .logo { display:flex; align-items:center; gap:6px; font-weight:600; font-size:1.05rem; }
+    .logo img { height:32px; filter:drop-shadow(0 0 4px rgba(255,255,255,.15)); animation: softGlow 5.5s ease-in-out infinite; }
+
+    .nav .links { display:flex; gap:10px; }
+    .nav .links .btn {
+      position:relative;
+      padding:6px 14px;
+      font-size:.95rem;
+      font-weight:500;
+      border-radius:6px;
+      transition:background .18s,color .18s,transform .18s;
+    }
+    .nav .links .btn::after {
+      content:"";
+      position:absolute;
+      left:12px; right:12px; bottom:-8px;
+      height:2px;
+      background:radial-gradient(circle, rgba(0,226,255,.8) 0%, rgba(0,226,255,0) 75%);
+      opacity:0;
+      transform:translateY(4px);
+      transition:opacity .18s, transform .18s;
+      border-radius:999px;
+    }
+    .nav .links .btn:hover {
+      background:rgba(255,255,255,.06);
+      color:#fff;
+      transform:translateY(-1px);
+    }
+    .nav .links .btn:hover::after { opacity:1; transform:translateY(0); }
+    .nav .links .btn[aria-current="page"] {
+      background:rgba(255,255,255,.08);
+      color:#fff;
+    }
+    .nav .links .btn[aria-current="page"]::after { opacity:1; transform:translateY(0); }
+
+    .lang { display:flex; gap:6px; }
+    .lang button {
+      background:rgba(255,255,255,.08);
+      border:none;
+      border-radius:6px;
+      padding:4px 10px;
+      color:#fff;
+      cursor:pointer;
+      font-weight:500;
+      font-size:.8rem;
+      transition:background .15s, transform .15s;
+    }
+    .lang button:hover { background:rgba(255,255,255,.16); transform:translateY(-1px); }
+    .lang button.active { background:#fff; color:#000; }
+
+    .hero { position:relative; overflow:hidden; }
+    .hero::after {
+      content:"";
+      position:absolute;
+      top:-120px; right:-140px;
+      width:280px; height:280px;
+      background:radial-gradient(circle, rgba(0,226,255,.25) 0%, rgba(0,226,255,0) 70%);
+      filter:blur(6px); pointer-events:none;
+    }
+    .hero img.banner { max-width:360px; margin-bottom:12px; animation: floatUp 6s ease-in-out infinite; }
+  </style>
 </head>
 <body>
   <div class="wrap">
@@ -35,7 +104,7 @@
 
     <!-- HERO -->
     <section class="hero">
-      <img src="/dragoncoin_logo_3d_dark.png" alt="DragonCoin Banner" class="banner float-up" />
+      <img src="/dragoncoin_logo_3d_dark.png" alt="DragonCoin Banner" class="banner" />
       <h1>DragonCoin (DRC) — Whitepaper Preview</h1>
       <p class="muted">Building a transparent, community-driven ecosystem on BNB Smart Chain.</p>
       <div class="kpi">
@@ -53,8 +122,8 @@
         </div>
       </div>
       <div class="cta">
-        <a class="btn primary" href="https://bscscan.com/token/0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b" target="_blank">View on BscScan</a>
-        <a class="btn" href="https://x.com/DragonCoinDRC" target="_blank">Follow on X</a>
+        <a class="btn primary" href="https://bscscan.com/token/0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b" target="_blank" rel="noopener">View on BscScan</a>
+        <a class="btn" href="https://x.com/DragonCoinDRC" target="_blank" rel="noopener">Follow on X</a>
       </div>
     </section>
 
@@ -63,11 +132,11 @@
       <div class="card">
         <h2>1. Introduction</h2>
         <p>
-          DragonCoin (DRC) is a community-driven digital value network on BNB Smart Chain (BEP-20).
-          This preview whitepaper is intended to provide a public, verifiable source of project information while the full version is being prepared.
+          DragonCoin (DRC) is a community-driven digital value network on the BNB Smart Chain (BEP-20).
+          This public preview whitepaper is intended to provide verifiable information for community members and for 3rd-party reviewers (such as BscScan).
         </p>
         <p>
-          The goal is simple: prove that DragonCoin is a real project with a real site, real email, real social, and a real contract.
+          The final PDF whitepaper will include tokenomics, governance, ecosystem plans, and technical details. This page is the public entry point.
         </p>
       </div>
     </section>
@@ -77,12 +146,12 @@
       <div class="card">
         <h2>2. Ecosystem Overview</h2>
         <ul class="list">
-          <li><strong>Token Layer:</strong> DRC as the core unit of value.</li>
+          <li><strong>Token Layer:</strong> DRC as the core unit of value and participation.</li>
           <li><strong>Community Layer:</strong> holders, contributors, partners.</li>
-          <li><strong>Creative/NFT Layer:</strong> future visual assets and badges.</li>
-          <li><strong>Transparency Layer:</strong> public site, contract, socials.</li>
+          <li><strong>Creative / NFT Layer:</strong> future visual assets, badges, collectibles, to be published via official OpenSea.</li>
+          <li><strong>Transparency Layer:</strong> website, socials, on-chain data — always public.</li>
         </ul>
-        <p class="muted" style="margin-top:6px;">This version focuses on visibility and trust. Tokenomics and governance will be added in v1.0.</p>
+        <p class="muted" style="margin-top:6px;">This version focuses on making the project verifiable. Utility will be added step by step.</p>
       </div>
 
       <div class="card">
@@ -93,8 +162,9 @@
           <li><strong>Network:</strong> BNB Smart Chain</li>
           <li><strong>Standard:</strong> BEP-20</li>
           <li><strong>Contract:</strong> <span class="mono">0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b</span></li>
-          <li><strong>Website:</strong> <a href="https://dragoncoin.fun" target="_blank">https://dragoncoin.fun</a></li>
+          <li><strong>Website:</strong> <a href="https://dragoncoin.fun" target="_blank" rel="noopener">https://dragoncoin.fun</a></li>
         </ul>
+        <p class="muted" style="margin-top:6px;">If there is any mismatch between site info and on-chain info, the on-chain version wins.</p>
       </div>
     </section>
 
@@ -103,9 +173,9 @@
       <div class="card">
         <h2>4. Roadmap</h2>
         <ul class="list">
-          <li><strong>Phase 1:</strong> site, domain, brand (done)</li>
-          <li><strong>Phase 2:</strong> BscScan token info update (in progress)</li>
-          <li><strong>Phase 3:</strong> full whitepaper v1.0 (tokenomics, governance)</li>
+          <li><strong>Phase 1:</strong> site, domain, branding ✅</li>
+          <li><strong>Phase 2:</strong> submit token info to BscScan ✅ (in queue)</li>
+          <li><strong>Phase 3:</strong> full whitepaper v1.0 (tokenomics, governance, partners)</li>
           <li><strong>Phase 4:</strong> ecosystem expansion, NFT, community incentives</li>
         </ul>
       </div>
@@ -116,18 +186,18 @@
       <div class="card">
         <h2>5. Official Links</h2>
         <ul class="list">
-          <li>Website: <a href="https://dragoncoin.fun" target="_blank">https://dragoncoin.fun</a></li>
-          <li>X (Twitter): <a href="https://x.com/DragonCoinDRC" target="_blank">@DragonCoinDRC</a></li>
+          <li>Website: <a href="https://dragoncoin.fun" target="_blank" rel="noopener">https://dragoncoin.fun</a></li>
+          <li>X (Twitter): <a href="https://x.com/DragonCoinDRC" target="_blank" rel="noopener">@DragonCoinDRC</a></li>
           <li>Email: <a href="mailto:contact@dragoncoin.fun">contact@dragoncoin.fun</a></li>
-          <li>BscScan: <a href="https://bscscan.com/token/0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b" target="_blank">View contract</a></li>
+          <li>BscScan: <a href="https://bscscan.com/token/0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b" target="_blank" rel="noopener">View contract</a></li>
         </ul>
       </div>
 
       <div class="card">
         <h2>6. Notes for Reviewers</h2>
         <p>
-          This public whitepaper page is intentionally kept simple to help BscScan and other explorers verify the project identity.
-          For any extra information, please contact: <a href="mailto:contact@dragoncoin.fun">contact@dragoncoin.fun</a>.
+          This page is intentionally public, simple, and consistent with the official site domain and email.
+          It is meant to help verification staff confirm that website, email, token, and socials indeed belong to the same project.
         </p>
       </div>
     </section>
@@ -137,8 +207,8 @@
       <p>© 2025 DragonCoin (DRC). All rights reserved.</p>
       <p>
         <a href="mailto:contact@dragoncoin.fun">contact@dragoncoin.fun</a> ·
-        <a href="https://x.com/DragonCoinDRC" target="_blank">X</a> ·
-        <a href="https://bscscan.com/token/0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b" target="_blank">BscScan</a>
+        <a href="https://x.com/DragonCoinDRC" target="_blank" rel="noopener">X</a> ·
+        <a href="https://bscscan.com/token/0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b" target="_blank" rel="noopener">BscScan</a>
       </p>
     </footer>
   </div>

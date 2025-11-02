@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DragonCoin (DRC) 白皮书</title>
-  <meta name="description" content="DragonCoin (DRC) 白皮书预览版：基于 BNB Smart Chain 的社区驱动型价值网络，包含项目简介、生态结构、路线图与联系信息。" />
+  <title>DragonCoin (DRC) 白皮书（预览版）</title>
+  <meta name="description" content="DragonCoin (DRC) 白皮书预览版：基于 BNB Smart Chain 的社区驱动型链上价值网络，包含项目简介、生态结构、路线图与联系信息。" />
 
   <!-- Favicon / Icons -->
   <link rel="icon" href="/favicon.ico?v=2" sizes="any">
@@ -12,6 +12,75 @@
   <meta name="theme-color" content="#0a0b10">
 
   <link rel="stylesheet" href="/assets/style.css" />
+
+  <style>
+    @keyframes fadeInUp { from {opacity:0; transform:translateY(16px);} to {opacity:1; transform:translateY(0);} }
+    @keyframes floatUp {0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);} }
+    @keyframes softGlow {0%,100%{box-shadow:0 0 0 rgba(0,255,255,0);}50%{box-shadow:0 0 14px rgba(0,180,255,0.25);} }
+
+    body .wrap { animation: fadeInUp .5s ease-out; }
+    .nav { gap:1.5rem; backdrop-filter:blur(6px); }
+    .logo { display:flex; align-items:center; gap:6px; font-weight:600; font-size:1.05rem; }
+    .logo img { height:32px; filter:drop-shadow(0 0 4px rgba(255,255,255,.15)); animation: softGlow 5.5s ease-in-out infinite; }
+
+    .nav .links { display:flex; gap:10px; }
+    .nav .links .btn {
+      position:relative;
+      padding:6px 14px;
+      font-size:.95rem;
+      font-weight:500;
+      border-radius:6px;
+      transition:background .18s,color .18s,transform .18s;
+    }
+    .nav .links .btn::after {
+      content:"";
+      position:absolute;
+      left:12px; right:12px; bottom:-8px;
+      height:2px;
+      background:radial-gradient(circle, rgba(0,226,255,.8) 0%, rgba(0,226,255,0) 75%);
+      opacity:0;
+      transform:translateY(4px);
+      transition:opacity .18s, transform .18s;
+      border-radius:999px;
+    }
+    .nav .links .btn:hover {
+      background:rgba(255,255,255,.06);
+      color:#fff;
+      transform:translateY(-1px);
+    }
+    .nav .links .btn:hover::after { opacity:1; transform:translateY(0); }
+    .nav .links .btn[aria-current="page"] {
+      background:rgba(255,255,255,.08);
+      color:#fff;
+    }
+    .nav .links .btn[aria-current="page"]::after { opacity:1; transform:translateY(0); }
+
+    .lang { display:flex; gap:6px; }
+    .lang button {
+      background:rgba(255,255,255,.08);
+      border:none;
+      border-radius:6px;
+      padding:4px 10px;
+      color:#fff;
+      cursor:pointer;
+      font-weight:500;
+      font-size:.8rem;
+      transition:background .15s, transform .15s;
+    }
+    .lang button:hover { background:rgba(255,255,255,.16); transform:translateY(-1px); }
+    .lang button.active { background:#fff; color:#000; }
+
+    .hero { position:relative; overflow:hidden; }
+    .hero::after {
+      content:"";
+      position:absolute;
+      top:-120px; right:-140px;
+      width:280px; height:280px;
+      background:radial-gradient(circle, rgba(0,226,255,.25) 0%, rgba(0,226,255,0) 70%);
+      filter:blur(6px); pointer-events:none;
+    }
+    .hero img.banner { max-width:360px; margin-bottom:12px; animation: floatUp 6s ease-in-out infinite; }
+  </style>
 </head>
 <body>
   <div class="wrap">
@@ -22,7 +91,7 @@
         DragonCoin
       </div>
       <div class="links">
-        <a href="/index.html" class="btn">首页</a>
+        <a href="/index_cn.html" class="btn">首页</a>
         <a href="/about_cn.html" class="btn">关于</a>
         <a href="/whitepaper_cn.html" class="btn" aria-current="page">白皮书</a>
         <a href="https://x.com/DragonCoinDRC" target="_blank" class="btn">X</a>
@@ -35,12 +104,12 @@
 
     <!-- HERO -->
     <section class="hero">
-      <img src="/dragoncoin_logo_3d_dark.png" alt="DragonCoin Banner" class="banner float-up" />
+      <img src="/dragoncoin_logo_3d_dark.png" alt="DragonCoin Banner" class="banner" />
       <h1>DragonCoin (DRC) 白皮书 · 预览版</h1>
       <p class="muted">基于 BNB Smart Chain 的社区驱动型链上价值网络</p>
       <div class="kpi">
         <div class="card">
-          <div class="pill">合约</div>
+          <div class="pill">合约地址</div>
           <div class="mono">0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b</div>
         </div>
         <div class="card">
@@ -53,8 +122,8 @@
         </div>
       </div>
       <div class="cta">
-        <a class="btn primary" href="https://bscscan.com/token/0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b" target="_blank">在 BscScan 查看</a>
-        <a class="btn" href="https://x.com/DragonCoinDRC" target="_blank">关注 X</a>
+        <a class="btn primary" href="https://bscscan.com/token/0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b" target="_blank" rel="noopener">在 BscScan 查看</a>
+        <a class="btn" href="https://x.com/DragonCoinDRC" target="_blank" rel="noopener">关注 X</a>
       </div>
     </section>
 
@@ -63,11 +132,11 @@
       <div class="card">
         <h2>1. 项目简介</h2>
         <p>
-          DragonCoin（DRC）是部署在 BNB Smart Chain（BEP-20）上的社区驱动型代币项目，
-          本页面为白皮书占位 / 展示版本，主要用于向社区与 BscScan 审核人员提供可验证的项目信息。
+          DragonCoin（DRC）是一个部署在 BNB Smart Chain（BEP-20）上的社区驱动型代币项目。
+          本页面作为公开预览版白皮书，主要用于向社区与第三方审核方（如 BscScan）提供可验证的项目信息。
         </p>
         <p>
-          正式版白皮书将上线 PDF 下载与更详细的代币经济模型说明。
+          正式版白皮书将上线 PDF 下载、代币经济模型、治理方案以及生态合作说明。
         </p>
       </div>
     </section>
@@ -77,11 +146,12 @@
       <div class="card">
         <h2>2. 生态结构</h2>
         <ul class="list">
-          <li><strong>代币层：</strong> DRC 作为生态的价值核心；</li>
-          <li><strong>社区层：</strong> 持币者、建设者、合作伙伴；</li>
-          <li><strong>创意层：</strong> 官方 NFT、纪念徽章、视觉资产；</li>
-          <li><strong>透明层：</strong> 官网、白皮书、X、BscScan 同步更新。</li>
+          <li><strong>代币层：</strong> DRC 作为生态价值与参与载体；</li>
+          <li><strong>社区层：</strong> 持币者、贡献者、内容创作者与合作伙伴；</li>
+          <li><strong>创意 / NFT 层：</strong> 官方徽章、纪念 NFT、品牌视觉资产；</li>
+          <li><strong>透明层：</strong> 官网 + 白皮书 + X + BscScan 同步，确保一致性。</li>
         </ul>
+        <p class="muted" style="margin-top:6px;">当前阶段的核心是“可被验证的公开资料”，功能与应用会逐步补上。</p>
       </div>
 
       <div class="card">
@@ -92,8 +162,9 @@
           <li><strong>链：</strong> BNB Smart Chain</li>
           <li><strong>标准：</strong> BEP-20</li>
           <li><strong>合约地址：</strong> <span class="mono">0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b</span></li>
-          <li><strong>官网：</strong> <a href="https://dragoncoin.fun" target="_blank">https://dragoncoin.fun</a></li>
+          <li><strong>官网：</strong> <a href="https://dragoncoin.fun" target="_blank" rel="noopener">https://dragoncoin.fun</a></li>
         </ul>
+        <p class="muted" style="margin-top:6px;">若官网与链上信息存在不一致，以链上为准。</p>
       </div>
     </section>
 
@@ -102,31 +173,30 @@
       <div class="card">
         <h2>4. 路线图（预览）</h2>
         <ul class="list">
-          <li><strong>阶段 1：</strong> 官网与品牌上线 ✅</li>
+          <li><strong>阶段 1：</strong> 官网、域名、视觉、合约上线 ✅</li>
           <li><strong>阶段 2：</strong> 向 BscScan 提交项目信息 ✅（排队中）</li>
-          <li><strong>阶段 3：</strong> 完整白皮书 v1.0（含 Tokenomics）</li>
-          <li><strong>阶段 4：</strong> 社区拓展、NFT、工具与合作</li>
+          <li><strong>阶段 3：</strong> 发布白皮书正式版（含 Tokenomics）</li>
+          <li><strong>阶段 4：</strong> 社区共建、NFT、生态工具、合作</li>
         </ul>
       </div>
     </section>
 
-    <!-- 5. 官方链接 -->
+    <!-- 5. 官方信息 -->
     <section class="grid" style="margin-top:20px;">
       <div class="card">
-        <h2>5. 官方链接</h2>
+        <h2>5. 官方信息</h2>
         <ul class="list">
-          <li>官网：<a href="https://dragoncoin.fun" target="_blank">https://dragoncoin.fun</a></li>
-          <li>X（Twitter）：<a href="https://x.com/DragonCoinDRC" target="_blank">@DragonCoinDRC</a></li>
+          <li>官网：<a href="https://dragoncoin.fun" target="_blank" rel="noopener">https://dragoncoin.fun</a></li>
+          <li>X（Twitter）：<a href="https://x.com/DragonCoinDRC" target="_blank" rel="noopener">@DragonCoinDRC</a></li>
           <li>邮箱：<a href="mailto:contact@dragoncoin.fun">contact@dragoncoin.fun</a></li>
-          <li>BscScan：<a href="https://bscscan.com/token/0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b" target="_blank">查看合约</a></li>
+          <li>BscScan：<a href="https://bscscan.com/token/0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b" target="_blank" rel="noopener">查看合约</a></li>
         </ul>
       </div>
 
       <div class="card">
-        <h2>6. 备注（供审核）</h2>
+        <h2>6. 审核说明</h2>
         <p>
-          本页为公开版白皮书，用于展示该代币确有官方网站、邮箱与社交账号，并且与链上合约保持一致。
-          若需更详细资料，请联系：<a href="mailto:contact@dragoncoin.fun">contact@dragoncoin.fun</a>
+          本页面特意保持与官网域名、官方邮箱与合约地址一致，方便 BscScan 或其他第三方进行项目归属验证。若需要更多资料，可通过邮箱联系。
         </p>
       </div>
     </section>
@@ -136,8 +206,8 @@
       <p>© 2025 DragonCoin (DRC). All rights reserved.</p>
       <p>
         <a href="mailto:contact@dragoncoin.fun">contact@dragoncoin.fun</a> ·
-        <a href="https://x.com/DragonCoinDRC" target="_blank">X</a> ·
-        <a href="https://bscscan.com/token/0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b" target="_blank">BscScan</a>
+        <a href="https://x.com/DragonCoinDRC" target="_blank" rel="noopener">X</a> ·
+        <a href="https://bscscan.com/token/0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b" target="_blank" rel="noopener">BscScan</a>
       </p>
     </footer>
   </div>
