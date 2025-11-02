@@ -3,64 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- 页面标题 -->
   <title>DragonCoin (DRC) — Official Website</title>
-  <meta name="description" content="DragonCoin (DRC) — A community-driven token project built on BNB Smart Chain." />
-  <link rel="icon" href="/favicon.svg" />
+
+  <!-- 搜索引擎描述 -->
+  <meta name="description" content="DragonCoin (DRC) — a community-driven token on BNB Smart Chain. Official website, verified contract, and roadmap. Transparency • Community • Growth." />
+
+  <!-- Favicon / Icons -->
+  <link rel="icon" href="/favicon.ico?v=2" sizes="any">
+  <link rel="apple-touch-icon" href="/dragoncoin_token_icon_512.png">
+  <meta name="theme-color" content="#0a0b10">
+
+  <!-- 网站样式 -->
   <link rel="stylesheet" href="/assets/style.css" />
-  <style>
-    /* 修正 logo 样式与导航按钮 */
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-weight: 600;
-      font-size: 1.1rem;
-      letter-spacing: 0.5px;
-    }
-    .logo img {
-      height: 32px;
-      width: auto;
-      vertical-align: middle;
-      margin-right: 4px;
-      filter: drop-shadow(0 0 4px rgba(255,255,255,0.2));
-    }
-    .nav .links {
-      display: flex;
-      gap: 12px;
-    }
-    .nav .links .btn {
-      padding: 6px 12px;
-      font-size: 0.95rem;
-      font-weight: 500;
-      border-radius: 6px;
-      transition: background 0.2s, color 0.2s;
-    }
-    .nav .links .btn:hover {
-      background: rgba(255,255,255,0.1);
-      color: #fff;
-    }
-    .lang {
-      display: flex;
-      gap: 6px;
-    }
-    .lang button {
-      padding: 4px 8px;
-      border-radius: 6px;
-      border: none;
-      cursor: pointer;
-      background: rgba(255,255,255,0.1);
-      color: #fff;
-      font-weight: 500;
-    }
-    .lang button.active {
-      background: #fff;
-      color: #000;
-    }
-  </style>
 </head>
+
 <body>
   <div class="wrap">
-    <!-- ===== 顶部导航 ===== -->
+    <!-- ===== 导航栏 ===== -->
     <nav class="nav">
       <div class="logo">
         <img src="/dragoncoin_token_icon_512.png" alt="DragonCoin Logo" />
@@ -78,35 +39,47 @@
       </div>
     </nav>
 
-    <!-- ===== 英雄区 ===== -->
+    <!-- ===== 主体内容 ===== -->
     <section class="hero">
-      <img src="/dragoncoin_logo_3d_dark.png" alt="DragonCoin Logo Banner" class="banner float-up" />
-      <h1>Welcome to DragonCoin (DRC)</h1>
-      <p class="muted">Building a transparent, community-driven ecosystem on BNB Smart Chain.</p>
+      <h1>DragonCoin (DRC)</h1>
+      <p class="muted">A community-driven token on the BNB Smart Chain — transparency, security, and growth for all holders.</p>
+
+      <div class="kpi">
+        <div class="card">
+          <div class="pill">Contract</div>
+          <div class="mono">0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b</div>
+        </div>
+        <div class="card">
+          <div class="pill">Standard</div>
+          <div>BEP-20</div>
+        </div>
+        <div class="card">
+          <div class="pill">Network</div>
+          <div>BNB Smart Chain</div>
+        </div>
+      </div>
+
       <div class="cta">
-        <a class="btn primary" href="/whitepaper.html">View Whitepaper</a>
-        <a class="btn" href="https://x.com/DragonCoinDRC" target="_blank" rel="noopener">Follow on X</a>
+        <a class="btn primary" href="https://bscscan.com/token/0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b" target="_blank" rel="noopener">View on BscScan</a>
+        <a class="btn" href="/about.html">Learn More</a>
       </div>
     </section>
 
-    <!-- ===== 项目亮点 ===== -->
-    <section class="grid" style="margin-top: 30px;">
+    <!-- ===== 简介区块 ===== -->
+    <section class="grid">
       <div class="card">
-        <h2>Decentralized Vision</h2>
-        <p>DragonCoin (DRC) is built on BNB Smart Chain (BEP-20) with transparency and community at its core. Every update is publicly verifiable on-chain and through our official channels.</p>
+        <h2>What is DragonCoin?</h2>
+        <p>DragonCoin (DRC) is a decentralized digital token designed to represent trust, transparency, and growth within the community-driven economy of the BNB Smart Chain ecosystem.</p>
+        <p>Our mission is to provide verifiable on-chain transparency and accessible value for users worldwide.</p>
       </div>
 
       <div class="card">
-        <h2>Verified Transparency</h2>
-        <p>Official contract address: <br />
-          <span class="mono">0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b</span>
-        </p>
-        <p>Fully verified and visible on <a href="https://bscscan.com/token/0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b" target="_blank" rel="noopener">BscScan</a>.</p>
-      </div>
-
-      <div class="card">
-        <h2>Community First</h2>
-        <p>We believe that real value comes from an engaged community — not just a token launch. DragonCoin aims to grow through transparency, education, and collaboration.</p>
+        <h2>Core Values</h2>
+        <ul class="list">
+          <li>🔒 Transparency & Security</li>
+          <li>🌐 Decentralized Community Growth</li>
+          <li>🚀 Future Ecosystem Expansion</li>
+        </ul>
       </div>
     </section>
 
