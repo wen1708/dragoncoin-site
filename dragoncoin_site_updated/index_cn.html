@@ -3,27 +3,45 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>DragonCoin (DRC) — 官方网站</title>
-  <meta name="description" content="DragonCoin (DRC) 是一个基于 BNB Smart Chain 的社区驱动型代币项目，具备官网、白皮书与官方社交账号，可用于第三方审核与收录。" />
+  <meta name="description" content="DragonCoin (DRC) 是一个基于 BNB Smart Chain 的社区驱动代币项目，强调公开透明与长期建设。" />
 
-  <!-- Favicon / Icons -->
   <link rel="icon" href="/favicon.ico?v=2" sizes="any">
   <link rel="apple-touch-icon" href="/dragoncoin_token_icon_512.png">
   <meta name="theme-color" content="#0a0b10">
-
   <link rel="stylesheet" href="/assets/style.css" />
+
+  <style>
+    @keyframes fadeInUp { from {opacity:0;transform:translateY(16px);} to {opacity:1;transform:translateY(0);} }
+    @keyframes floatUp {0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
+    @keyframes softGlow {0%,100%{box-shadow:0 0 0 rgba(0,255,255,0);}50%{box-shadow:0 0 14px rgba(0,180,255,0.25);}}
+    body .wrap {animation:fadeInUp .55s ease-out;}
+    .nav {gap:1.5rem;backdrop-filter:blur(6px);}
+    .logo{display:flex;align-items:center;gap:6px;font-weight:600;font-size:1.05rem;}
+    .logo img{height:32px;width:auto;filter:drop-shadow(0 0 4px rgba(255,255,255,0.15));animation:softGlow 5.5s ease-in-out infinite;}
+    .nav .links{display:flex;gap:10px;}
+    .nav .links .btn{position:relative;padding:6px 14px;font-size:.95rem;font-weight:500;border-radius:6px;transition:background .18s ease,color .18s ease,transform .18s ease;}
+    .nav .links .btn::after{content:"";position:absolute;left:12px;right:12px;bottom:-8px;height:2px;background:radial-gradient(circle,rgba(0,226,255,0.8)0%,rgba(0,226,255,0)75%);opacity:0;transform:translateY(4px);transition:opacity .18s,transform .18s;border-radius:999px;}
+    .nav .links .btn:hover{background:rgba(255,255,255,0.06);color:#fff;transform:translateY(-1px);}
+    .nav .links .btn:hover::after{opacity:1;transform:translateY(0);}
+    .nav .links .btn[aria-current="page"]{background:rgba(255,255,255,0.08);color:#fff;}
+    .nav .links .btn[aria-current="page"]::after{opacity:1;transform:translateY(0);}
+    .lang{display:flex;gap:6px;}
+    .lang button{background:rgba(255,255,255,0.08);border:none;border-radius:6px;padding:4px 10px;color:#fff;cursor:pointer;font-weight:500;font-size:.8rem;transition:background .15s,transform .15s;}
+    .lang button:hover{background:rgba(255,255,255,0.16);transform:translateY(-1px);}
+    .lang button.active{background:#fff;color:#000;}
+    .hero{position:relative;overflow:hidden;}
+    .hero::after{content:"";position:absolute;top:-120px;right:-160px;width:280px;height:280px;background:radial-gradient(circle,rgba(0,226,255,0.25)0%,rgba(0,226,255,0)70%);filter:blur(6px);}
+    .hero img.banner{max-width:360px;margin-bottom:12px;animation:floatUp 6s ease-in-out infinite;}
+    .cta .btn{transition:transform .15s,box-shadow .15s;}
+    .cta .btn.primary:hover{transform:translateY(-1px);box-shadow:0 14px 24px rgba(0,0,0,0.25);}
+  </style>
 </head>
 
 <body>
   <div class="wrap">
-    <!-- ===== 导航栏 ===== -->
     <nav class="nav">
-      <div class="logo">
-        <!-- ✅ 加入 logo 图片 -->
-        <img src="/dragoncoin_token_icon_512.png" alt="DragonCoin Logo" />
-        DragonCoin
-      </div>
+      <div class="logo"><img src="/dragoncoin_token_icon_512.png" alt="DragonCoin Logo" />DragonCoin</div>
       <div class="links">
         <a href="/index_cn.html" class="btn" aria-current="page">首页</a>
         <a href="/about_cn.html" class="btn">关于</a>
@@ -32,69 +50,35 @@
       </div>
       <div class="lang">
         <button onclick="location.href='/index.html'">EN</button>
-        <button class="active" aria-selected="true">中文</button>
+        <button class="active">中文</button>
       </div>
     </nav>
 
-    <!-- ===== 首页主视觉区域 ===== -->
     <section class="hero">
-      <!-- ✅ 与英文版统一：主页横幅 -->
-      <img src="/dragoncoin_logo_3d_dark.png" alt="DragonCoin Banner" class="banner float-up" />
+      <img src="/dragoncoin_logo_3d_dark.png" alt="DragonCoin Banner" class="banner" />
       <h1>欢迎来到 DragonCoin (DRC)</h1>
-      <p class="muted">
-        一个基于 BNB Smart Chain（BEP-20） 的社区驱动型代币项目，强调公开透明、可验证和长期建设。
-      </p>
+      <p class="muted">一个基于 BNB Smart Chain（BEP-20） 的社区驱动代币项目，强调公开透明与长期建设。</p>
 
       <div class="kpi">
-        <div class="card">
-          <div class="pill">合约地址</div>
-          <div class="mono">0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b</div>
-        </div>
-        <div class="card">
-          <div class="pill">代币标准</div>
-          <div class="mono">BEP-20</div>
-        </div>
-        <div class="card">
-          <div class="pill">区块链</div>
-          <div class="mono">BNB Smart Chain</div>
-        </div>
+        <div class="card"><div class="pill">合约地址</div><div class="mono">0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b</div></div>
+        <div class="card"><div class="pill">代币标准</div><div class="mono">BEP-20</div></div>
+        <div class="card"><div class="pill">区块链</div><div class="mono">BNB Smart Chain</div></div>
       </div>
 
       <div class="cta">
-        <a class="btn primary" href="https://bscscan.com/token/0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b" target="_blank" rel="noopener">在 BscScan 查看</a>
+        <a class="btn primary" href="https://bscscan.com/token/0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b" target="_blank">在 BscScan 查看</a>
         <a class="btn" href="/about_cn.html">了解项目</a>
       </div>
     </section>
 
-    <!-- ===== 中文简介区块 ===== -->
     <section class="grid">
-      <div class="card">
-        <h2>项目简介</h2>
-        <p>
-          DragonCoin（DRC）希望先建立一个可信的链上身份（官网 + 合约 + 官方邮箱 + 官方 X），
-          然后再逐步扩展到白皮书、NFT、社区激励等生态模块，方便第三方平台进行收录与展示。
-        </p>
-      </div>
-
-      <div class="card">
-        <h2>项目特点</h2>
-        <ul class="list">
-          <li>✅ 官网已上线，可访问</li>
-          <li>✅ 官方邮箱与域名一致：contact@dragoncoin.fun</li>
-          <li>✅ 正在进行 BscScan 项目信息补充</li>
-          <li>✅ 中英文页面分离，便于审核</li>
-        </ul>
-      </div>
+      <div class="card"><h2>项目简介</h2><p>DragonCoin（DRC）致力于构建一个可验证、可信赖的社区代币生态，官方合约、邮箱、网站均已公开。</p></div>
+      <div class="card"><h2>项目特点</h2><ul class="list"><li>✅ 官网已上线</li><li>✅ 官方邮箱 contact@dragoncoin.fun</li><li>✅ 审核信息持续更新</li></ul></div>
     </section>
 
-    <!-- ===== 页脚 ===== -->
     <footer class="footer">
       <p>© 2025 DragonCoin (DRC). All rights reserved.</p>
-      <p>
-        <a href="mailto:contact@dragoncoin.fun">contact@dragoncoin.fun</a> ·
-        <a href="https://x.com/DragonCoinDRC" target="_blank" rel="noopener">X</a> ·
-        <a href="https://bscscan.com/token/0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b" target="_blank" rel="noopener">BscScan</a>
-      </p>
+      <p><a href="mailto:contact@dragoncoin.fun">contact@dragoncoin.fun</a> · <a href="https://x.com/DragonCoinDRC" target="_blank">X</a> · <a href="https://bscscan.com/token/0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b" target="_blank">BscScan</a></p>
     </footer>
   </div>
 </body>
