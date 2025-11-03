@@ -5,21 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>DragonCoin | DRC</title>
 
-  <!-- 所有图片从根目录加载 -->
-  <link rel="stylesheet" href="assets/style.css?v=20251103"/>
+  <!-- 仍然引用 assets 下的样式与脚本 -->
+  <link rel="stylesheet" href="assets/style.css"/>
+  <!-- favicon 在根目录 -->
   <link rel="icon" href="favicon.ico"/>
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png"/>
-  <meta name="theme-color" content="#0a0b10"/>
 
   <style>
-    /* 顶部导航与语言按钮 */
+    /* 右侧导航布局 + 汉堡 */
     .nav{position:relative}
     .nav .links{margin-left:auto;display:flex;align-items:center;gap:10px}
     .logo img{width:26px;height:26px;display:block}
-    .lang-inline{display:flex;align-items:center;gap:8px;margin-left:6px}
-    .lang-inline .btn{height:38px}
 
-    /* 汉堡菜单 */
     .nav-toggle{display:none;align-items:center;justify-content:center;gap:4px;height:42px;width:46px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);cursor:pointer;transition:all .2s ease}
     .nav-toggle:hover{background:rgba(255,255,255,.12)}
     .nav-toggle-bar{display:block;width:20px;height:2px;background:#e9ecf4;border-radius:2px}
@@ -41,7 +37,11 @@
       .nav .links .btn{height:40px}
     }
 
-    /* 大Logo banner */
+    /* 语言切换在右侧（随菜单） */
+    .lang-inline{display:flex;align-items:center;gap:8px;margin-left:6px}
+    .lang-inline .btn{height:38px}
+
+    /* 大 logo/banner 自适应 */
     .hero .brand-banner{display:block;margin:0 auto 16px;max-width:360px;max-height:160px;object-fit:contain}
     @media (max-width:480px){.hero .brand-banner{max-width:280px;max-height:140px}}
   </style>
@@ -50,19 +50,18 @@
   <!-- 顶部导航 -->
   <div class="wrap nav">
     <a href="index.html" class="logo">
-      <img src="logo.png?v=20251103" alt="DragonCoin Logo"
-           onerror="this.onerror=null; this.src='Logo.png?v=20251103';">
+      <!-- 根目录图片：不带任何查询串 -->
+      <img src="logo.png" alt="DragonCoin Logo" width="26" height="26"
+           onerror="this.onerror=null; this.src='Logo.png';">
       DragonCoin
     </a>
 
-    <!-- 汉堡菜单 -->
+    <!-- 汉堡 -->
     <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
-      <span class="nav-toggle-bar"></span>
-      <span class="nav-toggle-bar"></span>
-      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span>
     </button>
 
-    <!-- 右侧链接 -->
+    <!-- 右侧链接 + 语言 -->
     <div class="links" id="site-nav">
       <a href="index.html" class="btn" aria-current="page">Home</a>
       <a href="about.html" class="btn">About</a>
@@ -75,10 +74,11 @@
     </div>
   </div>
 
-  <!-- 主体首屏 -->
+  <!-- 首屏 -->
   <section class="hero">
-    <img class="brand-banner" src="logo.png?v=20251103" alt="DragonCoin Banner"
-         onerror="this.onerror=null; this.src='Logo.png?v=20251103';">
+    <!-- 大 logo 同样不带查询串 -->
+    <img class="brand-banner" src="logo.png" alt="DragonCoin Banner"
+         onerror="this.onerror=null; this.src='Logo.png';" width="360" height="160">
 
     <h1>DragonCoin (DRC)</h1>
     <p>Empowering the Future of Decentralized Ecosystems</p>
@@ -109,7 +109,7 @@
 
   <div class="footer">© 2025 DragonCoin. All rights reserved.</div>
 
-  <script src="assets/main.js?v=20251103"></script>
+  <script src="assets/main.js"></script>
   <script>
     (function(){
       const nav=document.querySelector('.nav'),
@@ -120,8 +120,8 @@
       const close=()=>{nav.classList.remove('is-open');toggle.setAttribute('aria-expanded','false')};
       toggle.addEventListener('click',()=>nav.classList.contains('is-open')?close():open());
       links.querySelectorAll('a').forEach(a=>a.addEventListener('click',close));
-      document.addEventListener('click',e=>{if(!nav.classList.contains('is-open'))return;if(!nav.contains(e.target))close();});
-      window.addEventListener('resize',()=>{if(window.innerWidth>820)close();});
+      document.addEventListener('click',e=>{ if(!nav.classList.contains('is-open'))return; if(!nav.contains(e.target)) close(); });
+      window.addEventListener('resize',()=>{ if(window.innerWidth>820) close(); });
     })();
   </script>
 </body>
