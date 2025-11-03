@@ -13,8 +13,8 @@
 
   <style>
     @keyframes fadeInUp { from {opacity:0;transform:translateY(16px);} to {opacity:1;transform:translateY(0);} }
-    @keyframes floatUp {0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
-    @keyframes softGlow {0%,100%{box-shadow:0 0 0 rgba(0,255,255,0);}50%{box-shadow:0 0 14px rgba(0,180,255,0.25);}}
+    @keyframes floatUp {0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);} }
+    @keyframes softGlow {0%,100%{box-shadow:0 0 0 rgba(0,255,255,0);}50%{box-shadow:0 0 14px rgba(0,180,255,0.25);} }
     body .wrap {animation:fadeInUp .55s ease-out;}
     .nav {gap:1.5rem;backdrop-filter:blur(6px);}
     .logo{display:flex;align-items:center;gap:6px;font-weight:600;font-size:1.05rem;}
@@ -65,9 +65,9 @@
         <div class="card"><div class="pill">区块链</div><div class="mono">BNB Smart Chain</div></div>
       </div>
 
+      <!-- ✅ 首屏只保留「透明页」按钮 -->
       <div class="cta">
-        <a class="btn primary" href="https://bscscan.com/token/0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b" target="_blank">在 BscScan 查看</a>
-        <a class="btn" href="/about_cn.html">了解项目</a>
+        <a class="btn primary" href="/transparency.html">透明页</a>
       </div>
     </section>
 
@@ -78,7 +78,12 @@
 
     <footer class="footer">
       <p>© 2025 DragonCoin (DRC). All rights reserved.</p>
-      <p><a href="mailto:contact@dragoncoin.fun">contact@dragoncoin.fun</a> · <a href="https://x.com/DragonCoinDRC" target="_blank">X</a> · <a href="https://bscscan.com/token/0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b" target="_blank">BscScan</a></p>
+      <p>
+        <a href="mailto:contact@dragoncoin.fun">contact@dragoncoin.fun</a> ·
+        <a href="https://x.com/DragonCoinDRC" target="_blank">X</a> ·
+        <a href="https://bscscan.com/token/0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b" target="_blank">BscScan</a> ·
+        <a href="/about_cn.html">了解项目</a>
+      </p>
     </footer>
   </div>
 </body>
