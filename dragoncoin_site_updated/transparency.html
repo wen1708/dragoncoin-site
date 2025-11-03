@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DragonCoin Transparency 公示页 | DRC</title>
+  <link rel="stylesheet" href="/assets/style.css?v=20251103" />
+  <link rel="icon" href="/assets/favicon.ico" />
+  <style>
+    /* ===== Page-local styles (badges & grid) ===== */
+    .status-badge{display:inline-block;padding:2px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);font-size:12px;font-weight:600;margin-left:8px;color:#e5e5e5}
+    .status-ok{background:linear-gradient(180deg,rgba(109,226,255,.28),rgba(155,109,255,.18));color:#0a0b10;border-color:rgba(109,226,255,.5)}
+    .status-warn{background:rgba(255,185,0,.15);border-color:rgba(255,185,0,.35);color:#ffdd99}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    @media (max-width:880px){.grid-2{grid-template-columns:1fr}}
+    .addr{word-break:break-all}
+    .mono-btn{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border:1px solid rgba(255,255,255,.1);border-radius:10px;background:rgba(255,255,255,.03);font-size:12px;cursor:pointer}
+
+    /* ===== Burger nav (page-local so it works immediately) ===== */
+    .nav{position:relative}
+    .nav-toggle{display:none;align-items:center;justify-content:center;gap:4px;height:42px;width:46px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);cursor:pointer;transition:all .2s ease}
+    .nav-toggle:hover{background:rgba(255,255,255,.12)}
+    .nav-toggle-bar{display:block;width:20px;height:2px;background:#e9ecf4;border-radius:2px}
+    .nav-toggle-bar + .nav-toggle-bar{margin-top:4px}
+    .nav.is-open .nav-toggle-bar:nth-child(1){transform:translateY(6px) rotate(45deg);transition:transform .25s ease}
+    .nav.is-open .nav-toggle-bar:nth-child(2){opacity:0;transition:opacity .2s ease}
+    .nav.is-open .nav-toggle-bar:nth-child(3){transform:translateY(-6px) rotate(-45deg);transition:transform .25s ease}
+    @media (max-width:820px){
+      .nav{align-items:flex-start}
+      .nav .links{
+        position:absolute;top:60px;right:0;display:flex;flex-direction:column;gap:10px;padding:12px;
+        border:1px solid rgba(255,255,255,.12);border-radius:14px;background:rgba(15,16,24,.92);
+        backdrop-filter:blur(8px);box-shadow:0 10px 28px rgba(0,0,0,.35);
+        max-height:0;overflow:hidden;opacity:0;transform:translateY(-6px);
+        transition:max-height .25s ease,opacity .2s ease,transform .2s ease;width:min(86vw,320px)
+      }
+      .nav.is-open .links{max-height:400px;opacity:1;transform:translateY(0)}
+      .nav-toggle{display:inline-flex}
+      .nav .links .btn{height:40px}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 顶部导航（含汉堡） -->
+  <div class="wrap nav">
+    <a href="/index.html" class="logo">
+      <picture>
+        <source srcset="/assets/logo.svg" type="image/svg+xml">
+        <img src="/assets/logo.png" alt="DragonCoin Logo" onerror="this.src='/assets/Logo.png'">
+      </picture>
+      DragonCoin
+    </a>
+
+    <!-- Mobile toggle -->
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
+
+    <div class="links" id="site-nav">
+      <a href="/index.html" class="btn">Home / 首页</a>
+      <a href="/about.html" class="btn">About / 关于</a>
+      <a href="/whitepaper.html" class="btn">Whitepaper / 白皮书</a>
+      <a href="/transparency.html" class="btn" aria-current="page">Transparency / 透明</a>
+    </div>
+  </div>
+
+  <!-- 顶部 -->
+  <section class="hero">
+    <h1>Transparency 公示页</h1>
+    <p>Transparency & Security for All Holders / 面向所有持币者的透明与安全公示</p>
+  </section>
+
+  <!-- 内容 -->
+  <main class="whitepaper-content wrap">
+    <!-- 合约 -->
+    <section id="contract">
+      <h2>1. Contract Information / 合约信息</h2>
+      <p><strong>Token:</strong> DragonCoin (DRC)</p>
+      <p><strong>Standard / 标准:</strong> BEP-20 (BNB Smart Chain)</p>
+      <p><strong>Total Supply / 总量:</strong> 10,000,000,000 DRC</p>
+      <p class="addr">
+        <strong>Contract Address / 合约地址:</strong>
+        <a class="mono" href="https://bscscan.com/token/0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b" target="_blank" rel="noopener">
+          0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b
+        </a>
+        <button class="mono-btn" data-copy="0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b">Copy / 复制</button>
+      </p>
+      <p>Status: <span class="status-badge status-ok">Verified / 已验证</span></p>
+    </section>
+
+    <!-- 官方钱包 -->
+    <section id="wallets">
+      <h2>2. Official Wallets / 官方钱包</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Team Multisig / 团队多签</h3>
+          <p class="addr">
+            Address:
+            <a class="mono" href="#" target="_blank">0xTEAMMULTISIGADDRESS...</a>
+            <button class="mono-btn" data-copy="0xTEAMMULTISIGADDRESS">Copy</button>
+          </p>
+          <p class="muted">Used for development & operations. 多签钱包用于项目开发与运营。</p>
+        </div>
+        <div class="card">
+          <h3>Reserve Fund / 储备金</h3>
+          <p class="addr">
+            Address:
+            <a class="mono" href="#" target="_blank">0xRESERVEFUNDADDRESS...</a>
+            <button class="mono-btn" data-copy="0xRESERVEFUNDADDRESS">Copy</button>
+          </p>
+          <p class="muted">For ecosystem expansion & emergency use. 用于生态扩展与应急储备。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 锁仓信息 -->
+    <section id="locks">
+      <h2>3. Lockups / 锁仓信息</h2>
+      <table class="tokenomics-table">
+        <tr>
+          <th>Category / 类别</th><th>Amount</th><th>Share</th><th>Service / 平台</th><th>Unlock Date / 解锁时间</th><th>Proof / 凭证</th>
+        </tr>
+        <tr>
+          <td>Team & Advisors / 团队与顾问</td><td>1,500,000,000</td><td>15%</td><td>PinkLock</td><td>2026-11-01</td><td><a href="#">View / 查看</a></td>
+        </tr>
+        <tr>
+          <td>Ecosystem Fund / 生态建设基金</td><td>2,000,000,000</td><td>20%</td><td>PinkLock</td><td>2026-08-01</td><td><a href="#">View / 查看</a></td>
+        </tr>
+        <tr>
+          <td>Reserve Fund / 储备基金</td><td>1,000,000,000</td><td>10%</td><td>TeamFinance</td><td>2027-05-01</td><td><a href="#">View / 查看</a></td>
+        </tr>
+      </table>
+      <p class="muted mt-12">* All lockups will be publicly verifiable. 所有锁仓链接将在审核通过后公布。</p>
+    </section>
+
+    <!-- LP 锁仓 -->
+    <section id="lp">
+      <h2>4. Liquidity (LP) Lock / 流动性锁仓</h2>
+      <p>Pool: PancakeSwap DRC/BNB</p>
+      <p>Status: <span class="status-badge status-warn">Pending / 待上线</span></p>
+      <table class="tokenomics-table">
+        <tr><th>LP Token</th><th>Platform / 平台</th><th>Lock Duration / 锁仓期</th><th>Proof / 凭证</th></tr>
+        <tr>
+          <td>Pancake LP Token (DRC/BNB)</td><td>PancakeSwap</td><td>6 months (planned) / 约6个月</td><td><a href="#">Link / 链接</a></td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- Tokenomics 摘要 -->
+    <section id="summary">
+      <h2>5. Tokenomics Summary / 代币分配摘要</h2>
+      <table class="tokenomics-table">
+        <tr><th>Category / 类别</th><th>Share / 占比</th><th>Amount (DRC)</th></tr>
+        <tr><td>Community Airdrop & Rewards / 社区空投与奖励</td><td>30%</td><td>3,000,000,000</td></tr>
+        <tr><td>Liquidity Pool (LP) / 流动性池</td><td>25%</td><td>2,500,000,000</td></tr>
+        <tr><td>Ecosystem Development / 生态建设</td><td>20%</td><td>2,000,000,000</td></tr>
+        <tr><td>Team & Advisors / 团队与顾问</td><td>15%</td><td>1,500,000,000</td></tr>
+        <tr><td>Reserve Fund / 储备金</td><td>10%</td><td>1,000,000,000</td></tr>
+      </table>
+      <p class="muted mt-12">
+        See full details in <a href="/whitepaper.html">Whitepaper</a> /
+        查看完整说明：<a href="/whitepaper_cn.html">白皮书</a>
+      </p>
+    </section>
+
+    <!-- 审计与安全 -->
+    <section id="audit">
+      <h2>6. Audit & Security / 审计与安全</h2>
+      <p>Status: <span class="status-badge status-warn">Pending / 审核中</span></p>
+      <ul>
+        <li>Smart contract will be audited by third-party. 智能合约将由第三方安全机构审计。</li>
+        <li>Multisig & TimeLock for key wallets. 核心钱包采用多签与时间锁机制。</li>
+        <li>Bug bounty program planned. 将开放漏洞赏金计划。</li>
+      </ul>
+    </section>
+
+    <!-- 更新日志 -->
+    <section id="changelog">
+      <h2>7. Changelog / 更新日志</h2>
+      <ul class="list">
+        <li><strong>2025-11-03</strong> — Transparency page v0.1 launched / 公示页初版上线。</li>
+        <li><strong>Upcoming</strong> — Add verified lock & audit links / 即将更新锁仓与审计凭证。</li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- 页脚 -->
+  <div class="footer">
+    © 2025 DragonCoin. All Rights Reserved. / 版权所有。
+  </div>
+
+  <!-- 你现有的站点脚本（可留） -->
+  <script src="/assets/main.js?v=20251103"></script>
+
+  <!-- 页面内联：汉堡菜单 + 复制按钮（确保即插即用） -->
+  <script>
+    // Burger menu
+    (function(){
+      const nav = document.querySelector('.nav');
+      const toggle = document.querySelector('.nav-toggle');
+      const links = document.getElementById('site-nav');
+      if(!nav||!toggle||!links) return;
+      const open=()=>{nav.classList.add('is-open');toggle.setAttribute('aria-expanded','true')};
+      const close=()=>{nav.classList.remove('is-open');toggle.setAttribute('aria-expanded','false')};
+      const toggleMenu=()=>{nav.classList.contains('is-open')?close():open()};
+      toggle.addEventListener('click',toggleMenu);
+      links.querySelectorAll('a').forEach(a=>a.addEventListener('click',close));
+      document.addEventListener('click',e=>{ if(!nav.classList.contains('is-open'))return; if(!nav.contains(e.target)) close(); });
+      window.addEventListener('resize',()=>{ if(window.innerWidth>820) close(); });
+    })();
+
+    // Copy buttons
+    document.querySelectorAll('[data-copy]').forEach(btn=>{
+      btn.addEventListener('click', async ()=>{
+        try{
+          const text = btn.getAttribute('data-copy');
+          await navigator.clipboard.writeText(text);
+          const old = btn.textContent;
+          btn.textContent = 'Copied!';
+          setTimeout(()=>btn.textContent=old,1200);
+        }catch(e){ alert('复制失败，请手动复制'); }
+      });
+    });
+  </script>
+</body>
+</html>
