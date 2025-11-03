@@ -4,8 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>DragonCoin Transparency 公示页 | DRC</title>
-  <link rel="stylesheet" href="/assets/style.css?v=20251103" />
-  <link rel="icon" href="/assets/favicon.ico" />
+  <!-- 路径改为相对路径，避免 /assets 在非根目录 404 -->
+  <link rel="stylesheet" href="assets/style.css?v=20251103" />
+  <link rel="icon" href="assets/favicon.ico" />
   <style>
     /* ===== Page-local styles (badges & grid) ===== */
     .status-badge{display:inline-block;padding:2px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);font-size:12px;font-weight:600;margin-left:8px;color:#e5e5e5}
@@ -16,7 +17,7 @@
     .addr{word-break:break-all}
     .mono-btn{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border:1px solid rgba(255,255,255,.1);border-radius:10px;background:rgba(255,255,255,.03);font-size:12px;cursor:pointer}
 
-    /* ===== Burger nav (page-local so it works immediately) ===== */
+    /* ===== Burger nav (page-local) ===== */
     .nav{position:relative}
     .nav-toggle{display:none;align-items:center;justify-content:center;gap:4px;height:42px;width:46px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);cursor:pointer;transition:all .2s ease}
     .nav-toggle:hover{background:rgba(255,255,255,.12)}
@@ -44,10 +45,11 @@
 
   <!-- 顶部导航（含汉堡） -->
   <div class="wrap nav">
-    <a href="/index.html" class="logo">
+    <a href="index.html" class="logo">
+      <!-- 全站用相对路径，避免 /assets 在子目录失效 -->
       <picture>
-        <source srcset="/assets/logo.svg" type="image/svg+xml">
-        <img src="/assets/logo.png" alt="DragonCoin Logo" onerror="this.src='/assets/Logo.png'">
+        <source srcset="assets/logo.svg" type="image/svg+xml">
+        <img src="assets/logo.png" alt="DragonCoin Logo" onerror="this.src='assets/Logo.png'">
       </picture>
       DragonCoin
     </a>
@@ -60,10 +62,10 @@
     </button>
 
     <div class="links" id="site-nav">
-      <a href="/index.html" class="btn">Home / 首页</a>
-      <a href="/about.html" class="btn">About / 关于</a>
-      <a href="/whitepaper.html" class="btn">Whitepaper / 白皮书</a>
-      <a href="/transparency.html" class="btn" aria-current="page">Transparency / 透明</a>
+      <a href="index.html" class="btn">Home / 首页</a>
+      <a href="about.html" class="btn">About / 关于</a>
+      <a href="whitepaper.html" class="btn">Whitepaper / 白皮书</a>
+      <a href="transparency.html" class="btn" aria-current="page">Transparency / 透明</a>
     </div>
   </div>
 
@@ -161,8 +163,8 @@
         <tr><td>Reserve Fund / 储备金</td><td>10%</td><td>1,000,000,000</td></tr>
       </table>
       <p class="muted mt-12">
-        See full details in <a href="/whitepaper.html">Whitepaper</a> /
-        查看完整说明：<a href="/whitepaper_cn.html">白皮书</a>
+        See full details in <a href="whitepaper.html">Whitepaper</a> /
+        查看完整说明：<a href="whitepaper_cn.html">白皮书</a>
       </p>
     </section>
 
@@ -192,10 +194,10 @@
     © 2025 DragonCoin. All Rights Reserved. / 版权所有。
   </div>
 
-  <!-- 你现有的站点脚本（可留） -->
-  <script src="/assets/main.js?v=20251103"></script>
+  <!-- 相对路径的站点脚本 -->
+  <script src="assets/main.js?v=20251103"></script>
 
-  <!-- 页面内联：汉堡菜单 + 复制按钮（确保即插即用） -->
+  <!-- 页面内联：汉堡菜单 + 复制按钮 -->
   <script>
     // Burger menu
     (function(){
