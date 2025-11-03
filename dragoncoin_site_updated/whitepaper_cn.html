@@ -1,219 +1,111 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DragonCoin (DRC) 白皮书 · 预览版</title>
-  <meta name="description" content="DragonCoin (DRC) 白皮书预览版，用于向社区与 BscScan 审核方提供可验证的项目信息。正式 PDF 白皮书将在链上信息更新后发布。" />
-
-  <!-- Favicon / Icons -->
-  <link rel="icon" href="/favicon.ico?v=2" sizes="any">
-  <link rel="apple-touch-icon" href="/dragoncoin_token_icon_512.png">
-  <meta name="theme-color" content="#0a0b10">
-
-  <link rel="stylesheet" href="/assets/style.css" />
-
-  <style>
-    @keyframes fadeInUp { from {opacity:0; transform:translateY(16px);} to {opacity:1; transform:translateY(0);} }
-    @keyframes floatUp {0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);} }
-    @keyframes softGlow {0%,100%{box-shadow:0 0 0 rgba(0,255,255,0);}50%{box-shadow:0 0 14px rgba(0,180,255,0.25);} }
-
-    body .wrap { animation: fadeInUp .5s ease-out; }
-    .nav { gap:1.5rem; backdrop-filter:blur(6px); }
-    .logo { display:flex; align-items:center; gap:6px; font-weight:600; font-size:1.05rem; }
-    .logo img { height:32px; filter:drop-shadow(0 0 4px rgba(255,255,255,.15)); animation: softGlow 5.5s ease-in-out infinite; }
-
-    .nav .links { display:flex; gap:10px; }
-    .nav .links .btn {
-      position:relative;
-      padding:6px 14px;
-      font-size:.95rem;
-      font-weight:500;
-      border-radius:6px;
-      transition:background .18s,color .18s,transform .18s;
-    }
-    .nav .links .btn::after {
-      content:"";
-      position:absolute;
-      left:12px; right:12px; bottom:-8px;
-      height:2px;
-      background:radial-gradient(circle, rgba(0,226,255,.8) 0%, rgba(0,226,255,0) 75%);
-      opacity:0;
-      transform:translateY(4px);
-      transition:opacity .18s, transform .18s;
-      border-radius:999px;
-    }
-    .nav .links .btn:hover {
-      background:rgba(255,255,255,.06);
-      color:#fff;
-      transform:translateY(-1px);
-    }
-    .nav .links .btn:hover::after { opacity:1; transform:translateY(0); }
-    .nav .links .btn[aria-current="page"] {
-      background:rgba(255,255,255,.08);
-      color:#fff;
-    }
-    .nav .links .btn[aria-current="page"]::after { opacity:1; transform:translateY(0); }
-
-    .lang { display:flex; gap:6px; }
-    .lang button {
-      background:rgba(255,255,255,.08);
-      border:none;
-      border-radius:6px;
-      padding:4px 10px;
-      color:#fff;
-      cursor:pointer;
-      font-weight:500;
-      font-size:.8rem;
-      transition:background .15s, transform .15s;
-    }
-    .lang button:hover { background:rgba(255,255,255,.16); transform:translateY(-1px); }
-    .lang button.active { background:#fff; color:#000; }
-
-    .hero { position:relative; overflow:hidden; }
-    .hero::after {
-      content:"";
-      position:absolute;
-      top:-120px; right:-140px;
-      width:280px; height:280px;
-      background:radial-gradient(circle, rgba(0,226,255,.25) 0%, rgba(0,226,255,0) 70%);
-      filter:blur(6px); pointer-events:none;
-    }
-    .hero img.banner { max-width:360px; margin-bottom:12px; animation: floatUp 6s ease-in-out infinite; }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DragonCoin 白皮书 | DRC</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="assets/favicon.ico">
 </head>
 <body>
-  <div class="wrap">
-    <!-- NAV -->
-    <nav class="nav">
-      <div class="logo">
-        <img src="/dragoncoin_token_icon_512.png" alt="DragonCoin Logo" />
-        DragonCoin
-      </div>
-      <div class="links">
-        <a href="/index_cn.html" class="btn">首页</a>
-        <a href="/about_cn.html" class="btn">关于</a>
-        <a href="/whitepaper_cn.html" class="btn" aria-current="page">白皮书</a>
-        <a href="https://x.com/DragonCoinDRC" target="_blank" class="btn">X</a>
-      </div>
-      <div class="lang">
-        <button onclick="location.href='/whitepaper.html'">EN</button>
-        <button class="active" aria-selected="true">中文</button>
-      </div>
+
+  <!-- Header Section -->
+  <header>
+    <nav class="navbar">
+      <a href="index_cn.html" class="logo">
+        <img src="assets/logo.png" alt="DragonCoin Logo">
+      </a>
+      <ul class="nav-links">
+        <li><a href="index_cn.html">首页</a></li>
+        <li><a href="about_cn.html">关于我们</a></li>
+        <li><a href="whitepaper_cn.html" class="active">白皮书</a></li>
+        <li><a href="whitepaper.html">EN</a></li>
+      </ul>
     </nav>
+  </header>
 
-    <!-- HERO -->
-    <section class="hero">
-      <img src="/dragoncoin_logo_3d_dark.png" alt="DragonCoin Banner" class="banner" />
-      <h1>DragonCoin (DRC) 白皮书 · 预览版</h1>
-      <p class="muted">本页面用于公开展示项目资料，便于审核与收录。</p>
-      <div class="kpi">
-        <div class="card">
-          <div class="pill">合约</div>
-          <div class="mono">0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b</div>
-        </div>
-        <div class="card">
-          <div class="pill">邮箱</div>
-          <div class="mono"><a href="mailto:contact@dragoncoin.fun">contact@dragoncoin.fun</a></div>
-        </div>
-        <div class="card">
-          <div class="pill">官方 X</div>
-          <div class="mono"><a href="https://x.com/DragonCoinDRC" target="_blank">@DragonCoinDRC</a></div>
-        </div>
-      </div>
-      <div class="cta">
-        <a class="btn primary" href="https://bscscan.com/token/0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b" target="_blank" rel="noopener">在 BscScan 查看</a>
-        <a class="btn" href="https://x.com/DragonCoinDRC" target="_blank" rel="noopener">关注 X</a>
-      </div>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>DragonCoin (DRC) 官方白皮书</h1>
+    <p>面向去中心化生态的下一代价值载体</p>
+  </section>
+
+  <!-- Content Section -->
+  <main class="whitepaper-content">
+
+    <section>
+      <h2>1. 项目简介</h2>
+      <p>DragonCoin（简称 DRC）是一种面向社区、以透明与长线增长为目标设计的去中心化数字资产。项目以“龙”这一象征财富、守护与力量的东方文化意象为核心，希望在链上打造兼具文化认同与实际使用场景的代币生态。</p>
     </section>
 
-    <!-- 1. 文档状态 -->
-    <section class="header" style="margin-top:20px;">
-      <div class="card">
-        <h2>1. 文档状态说明</h2>
-        <p>
-          本白皮书为<strong>公开预览版</strong>，主要目标是向 BscScan 及其他第三方证明：该代币确有官网、确有官方邮箱、确有社交账号，并且这些信息在官网上可以被公开访问。
-        </p>
-        <p>
-          正式 PDF 版会在 BscScan 成功更新项目信息后发布，并补充代币经济模型（Tokenomics）、治理模型及更多技术细节。
-        </p>
-      </div>
+    <section>
+      <h2>2. 市场背景</h2>
+      <p>当前的区块链与加密资产行业仍在快速发展中，DeFi、NFT、链游、社交类应用不断涌现，但不少项目存在生命周期短、经济模型不透明、缺少社区共识等问题。DragonCoin 的定位，是用清晰的代币经济模型和可延展的生态，去适配这一阶段的用户与市场需求。</p>
     </section>
 
-    <!-- 2. 项目与官网信息 -->
-    <section class="grid" style="margin-top:20px;">
-      <div class="card">
-        <h2>2. 项目简介</h2>
-        <p>
-          DragonCoin（DRC）是一个部署在 BNB Smart Chain（BEP-20）上的社区驱动项目，当前阶段的重点是建立“可信的公开身份”：
-          官网、邮箱、合约地址、白皮书页面、社交账号全部统一。
-        </p>
-        <p class="muted">
-          这样可以避免被平台标记为“信息不足”或“无法验证来源”的项目。
-        </p>
-      </div>
-
-      <div class="card">
-        <h2>3. 官方信息</h2>
-        <ul class="list">
-          <li><strong>官网：</strong> <a href="https://dragoncoin.fun" target="_blank" rel="noopener">https://dragoncoin.fun</a></li>
-          <li><strong>邮箱：</strong> <a href="mailto:contact@dragoncoin.fun">contact@dragoncoin.fun</a>（与官网同域名）</li>
-          <li><strong>X（Twitter）：</strong> <a href="https://x.com/DragonCoinDRC" target="_blank" rel="noopener">@DragonCoinDRC</a></li>
-          <li><strong>合约地址：</strong> <span class="mono">0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b</span></li>
-        </ul>
-      </div>
+    <section>
+      <h2>3. 项目概述</h2>
+      <p>DragonCoin 生态由三大核心组成：DRC 代币、NFT 资产与 DragonWorld 扩展平台。三者之间相互连接，既能满足用户的参与、治理与收益需求，又能为后续的 Game / Metaverse / 合作接入提供统一入口。</p>
     </section>
 
-    <!-- 4. 生态结构 -->
-    <section class="grid" style="margin-top:20px;">
-      <div class="card">
-        <h2>4. 生态结构（规划）</h2>
-        <ul class="list">
-          <li><strong>代币层：</strong> DRC 作为生态价值载体；</li>
-          <li><strong>社区层：</strong> 持币者、建设者、内容创作者；</li>
-          <li><strong>创意层：</strong> 官方 NFT / 徽章 / 视觉资产；</li>
-          <li><strong>透明层：</strong> 官网 + 链上信息 + 社交，多端一致。</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h2>5. 路线图（预览）</h2>
-        <ul class="list">
-          <li><strong>阶段 1：</strong> 品牌、域名、网站上线 ✅</li>
-          <li><strong>阶段 2：</strong> 向 BscScan 更新项目信息 ✅（被要求补资料）</li>
-          <li><strong>阶段 3：</strong> 发布正式版白皮书（PDF）</li>
-          <li><strong>阶段 4：</strong> 社区活动、NFT、生态工具接入</li>
-        </ul>
-      </div>
+    <section>
+      <h2>4. 代币经济（Tokenomics）</h2>
+      <table class="tokenomics-table">
+        <tr><th>分配类别</th><th>占比</th><th>说明</th></tr>
+        <tr><td>社区与空投</td><td>25%</td><td>用于早期支持者、活动奖励与社群增长</td></tr>
+        <tr><td>团队与顾问</td><td>15%</td><td>锁仓并按 12 个月线性释放，保证项目长期性</td></tr>
+        <tr><td>流动性池</td><td>20%</td><td>用于 DEX 流动性与交易稳定性</td></tr>
+        <tr><td>市场与合作</td><td>20%</td><td>用于品牌建设、KOL、合作伙伴、生态拓展</td></tr>
+        <tr><td>储备基金</td><td>20%</td><td>项目后续开发、审计与创新激励</td></tr>
+      </table>
+      <p>总代币量：1,000,000,000 DRC（示例，可根据实际合约数据替换）</p>
+      <p>代币标准：BEP-20（BSC）</p>
+      <p>合约地址：待 BscScan 审核通过后正式公布</p>
     </section>
 
-    <!-- 6. 团队与验证 -->
-    <section class="header" style="margin-top:20px;">
-      <div class="card">
-        <h2>6. 团队与验证方式</h2>
-        <p>
-          DragonCoin 目前由小型独立团队维护，团队不强制公开个人身份，而是通过官网域名邮箱进行官方验证：
-          <a href="mailto:contact@dragoncoin.fun">contact@dragoncoin.fun</a>。
-        </p>
-        <p>若审核方需要更强验证，团队可以：</p>
-        <ul class="list">
-          <li>在官网首页或白皮书页临时发布验证声明</li>
-          <li>使用创建代币的地址签名并提供签名信息</li>
-          <li>通过同域名邮箱进行往来确认</li>
-        </ul>
-        <p class="muted">这能解决 BscScan 提到的“信息不足 / 无法确认归属”的问题。</p>
-      </div>
+    <section>
+      <h2>5. 功能与使用场景</h2>
+      <ul>
+        <li>DAO / 社区治理：DRC 持有者可对提案、生态方向进行投票；</li>
+        <li>质押与收益：通过 Staking 获取额外奖励或参与特定活动；</li>
+        <li>生态内支付：在 DragonWorld 或合作项目中用于支付 / 解锁内容；</li>
+        <li>NFT 访问权：作为购买、升级、解锁限量 NFT 的基础代币；</li>
+        <li>合作激励：给予合作方、创作者、社区节点的激励代币。</li>
+      </ul>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-      <p>© 2025 DragonCoin (DRC). All rights reserved.</p>
-      <p>
-        <a href="mailto:contact@dragoncoin.fun">contact@dragoncoin.fun</a> ·
-        <a href="https://x.com/DragonCoinDRC" target="_blank" rel="noopener">X</a> ·
-        <a href="https://bscscan.com/token/0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b" target="_blank" rel="noopener">BscScan</a>
-      </p>
-    </footer>
-  </div>
+    <section>
+      <h2>6. 路线图（Roadmap）</h2>
+      <table class="roadmap-table">
+        <tr><th>阶段</th><th>时间</th><th>目标</th></tr>
+        <tr><td>Phase 1</td><td>2025 Q1</td><td>官网与品牌上线，BscScan 信息验证，白皮书上线</td></tr>
+        <tr><td>Phase 2</td><td>2025 Q2</td><td>NFT 启动、社区建设、营销活动</td></tr>
+        <tr><td>Phase 3</td><td>2025 Q3</td><td>交易所对接、质押功能、合作伙伴引入</td></tr>
+        <tr><td>Phase 4</td><td>2025 Q4</td><td>DragonWorld Beta、公会/DAO 治理、生态扩容</td></tr>
+      </table>
+    </section>
+
+    <section>
+      <h2>7. 团队与合作伙伴</h2>
+      <p>DragonCoin 项目由来自区块链开发、互联网产品、品牌与社区运营等领域的成员组成。根据项目阶段，团队可选择半匿名或披露核心成员。此外，项目将逐步公布技术服务方、生态合作方与营销伙伴。</p>
+    </section>
+
+    <section>
+      <h2>8. 安全与透明</h2>
+      <p>项目将采用第三方审计机构对核心合约进行安全审计，并公开结果。重要资产（如流动性池、团队份额）将采用锁仓或多签管理方式，并公布地址，保证资金安全与社区信任。</p>
+    </section>
+
+    <section>
+      <h2>9. 法律声明</h2>
+      <p>本白皮书内容仅为项目介绍用途，不构成任何形式的投资建议或法律意见。加密资产具有较高波动性，请在参与前自行评估风险并遵守所在地区的法律法规。</p>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 DragonCoin. 版权所有.</p>
+  </footer>
+
 </body>
 </html>

@@ -1,227 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DragonCoin (DRC) — Whitepaper Preview</title>
-  <meta name="description" content="DragonCoin (DRC) whitepaper preview. This page provides verifiable public information for BscScan and community reviewers. Full PDF to follow after explorer approval." />
-
-  <!-- Favicon / Icons -->
-  <link rel="icon" href="/favicon.ico?v=2" sizes="any">
-  <link rel="apple-touch-icon" href="/dragoncoin_token_icon_512.png">
-  <meta name="theme-color" content="#0a0b10">
-
-  <link rel="stylesheet" href="/assets/style.css" />
-
-  <style>
-    @keyframes fadeInUp { from {opacity:0; transform:translateY(16px);} to {opacity:1; transform:translateY(0);} }
-    @keyframes floatUp {0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);} }
-    @keyframes softGlow {0%,100%{box-shadow:0 0 0 rgba(0,255,255,0);}50%{box-shadow:0 0 14px rgba(0,180,255,0.25);} }
-
-    body .wrap { animation: fadeInUp .5s ease-out; }
-    .nav { gap:1.5rem; backdrop-filter:blur(6px); }
-    .logo { display:flex; align-items:center; gap:6px; font-weight:600; font-size:1.05rem; }
-    .logo img { height:32px; filter:drop-shadow(0 0 4px rgba(255,255,255,.15)); animation: softGlow 5.5s ease-in-out infinite; }
-
-    .nav .links { display:flex; gap:10px; }
-    .nav .links .btn {
-      position:relative;
-      padding:6px 14px;
-      font-size:.95rem;
-      font-weight:500;
-      border-radius:6px;
-      transition:background .18s,color .18s,transform .18s;
-    }
-    .nav .links .btn::after {
-      content:"";
-      position:absolute;
-      left:12px; right:12px; bottom:-8px;
-      height:2px;
-      background:radial-gradient(circle, rgba(0,226,255,.8) 0%, rgba(0,226,255,0) 75%);
-      opacity:0;
-      transform:translateY(4px);
-      transition:opacity .18s, transform .18s;
-      border-radius:999px;
-    }
-    .nav .links .btn:hover {
-      background:rgba(255,255,255,.06);
-      color:#fff;
-      transform:translateY(-1px);
-    }
-    .nav .links .btn:hover::after { opacity:1; transform:translateY(0); }
-    .nav .links .btn[aria-current="page"] {
-      background:rgba(255,255,255,.08);
-      color:#fff;
-    }
-    .nav .links .btn[aria-current="page"]::after { opacity:1; transform:translateY(0); }
-
-    .lang { display:flex; gap:6px; }
-    .lang button {
-      background:rgba(255,255,255,.08);
-      border:none;
-      border-radius:6px;
-      padding:4px 10px;
-      color:#fff;
-      cursor:pointer;
-      font-weight:500;
-      font-size:.8rem;
-      transition:background .15s, transform .15s;
-    }
-    .lang button:hover { background:rgba(255,255,255,.16); transform:translateY(-1px); }
-    .lang button.active { background:#fff; color:#000; }
-
-    .hero { position:relative; overflow:hidden; }
-    .hero::after {
-      content:"";
-      position:absolute;
-      top:-120px; right:-140px;
-      width:280px; height:280px;
-      background:radial-gradient(circle, rgba(0,226,255,.25) 0%, rgba(0,226,255,0) 70%);
-      filter:blur(6px); pointer-events:none;
-    }
-    .hero img.banner { max-width:360px; margin-bottom:12px; animation: floatUp 6s ease-in-out infinite; }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DragonCoin Whitepaper | DRC</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="assets/favicon.ico">
 </head>
 <body>
-  <div class="wrap">
-    <!-- NAV -->
-    <nav class="nav">
-      <div class="logo">
-        <img src="/dragoncoin_token_icon_512.png" alt="DragonCoin Logo" />
-        DragonCoin
-      </div>
-      <div class="links">
-        <a href="/index.html" class="btn">Home</a>
-        <a href="/about.html" class="btn">About</a>
-        <a href="/whitepaper.html" class="btn" aria-current="page">Whitepaper</a>
-        <a href="https://x.com/DragonCoinDRC" target="_blank" class="btn">X</a>
-      </div>
-      <div class="lang">
-        <button class="active" aria-selected="true">EN</button>
-        <button onclick="location.href='/whitepaper_cn.html'">中文</button>
-      </div>
+
+  <!-- Header Section -->
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="logo">
+        <img src="assets/logo.png" alt="DragonCoin Logo">
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="whitepaper.html" class="active">Whitepaper</a></li>
+        <li><a href="whitepaper_cn.html">中文</a></li>
+      </ul>
     </nav>
+  </header>
 
-    <!-- HERO -->
-    <section class="hero">
-      <img src="/dragoncoin_logo_3d_dark.png" alt="DragonCoin Banner" class="banner" />
-      <h1>DragonCoin (DRC) — Whitepaper Preview</h1>
-      <p class="muted">This page provides public, verifiable project information for BscScan and community users.</p>
-      <div class="kpi">
-        <div class="card">
-          <div class="pill">Contract</div>
-          <div class="mono">0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b</div>
-        </div>
-        <div class="card">
-          <div class="pill">Email</div>
-          <div class="mono"><a href="mailto:contact@dragoncoin.fun">contact@dragoncoin.fun</a></div>
-        </div>
-        <div class="card">
-          <div class="pill">Official X</div>
-          <div class="mono"><a href="https://x.com/DragonCoinDRC" target="_blank">@DragonCoinDRC</a></div>
-        </div>
-      </div>
-      <div class="cta">
-        <a class="btn primary" href="https://bscscan.com/token/0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b" target="_blank" rel="noopener">View on BscScan</a>
-        <a class="btn" href="https://x.com/DragonCoinDRC" target="_blank" rel="noopener">Follow on X</a>
-      </div>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>DragonCoin (DRC) Whitepaper</h1>
+    <p>Empowering the Future of Decentralized Ecosystems</p>
+  </section>
+
+  <!-- Content Section -->
+  <main class="whitepaper-content">
+
+    <section>
+      <h2>1. Introduction</h2>
+      <p>DragonCoin (DRC) is a decentralized digital currency designed to empower communities through transparency, innovation, and shared growth. It aims to create a bridge between blockchain utility and cultural symbolism, inspired by the mythical power of the dragon as a force of prosperity and unity.</p>
     </section>
 
-    <!-- 1. Document Status -->
-    <section class="header" style="margin-top:20px;">
-      <div class="card">
-        <h2>1. Document Status</h2>
-        <p>
-          This is a <strong>public preview</strong> of the DragonCoin whitepaper. It is intentionally published early to help
-          explorers, listing sites, and reviewers confirm that the token, the website, the email, and the social accounts
-          belong to the same project.
-        </p>
-        <p>
-          The full PDF version (with tokenomics and deeper technical sections) will be published after the explorer
-          (BscScan) has updated the token information page.
-        </p>
-      </div>
+    <section>
+      <h2>2. Market Background</h2>
+      <p>The global blockchain industry continues to expand rapidly, introducing new models of decentralized finance, NFT economies, and community-driven ecosystems. However, most projects struggle to sustain long-term growth due to lack of identity, utility, or transparent governance. DragonCoin addresses these issues by combining cultural storytelling with robust tokenomics and utility design.</p>
     </section>
 
-    <!-- 2. Project Intro & Vision -->
-    <section class="grid" style="margin-top:20px;">
-      <div class="card">
-        <h2>2. Project Introduction</h2>
-        <p>
-          DragonCoin (DRC) is a community-driven token on BNB Smart Chain (BEP-20), designed to be easily verifiable and upgradable.
-          The core idea is: <strong>make the project real, visible, and contactable first</strong> — then add advanced utilities.
-        </p>
-        <p class="muted">This approach is suitable for early-stage projects that want to avoid being flagged as “incomplete”.</p>
-      </div>
-
-      <div class="card">
-        <h2>3. Official Information</h2>
-        <ul class="list">
-          <li><strong>Official Website:</strong> <a href="https://dragoncoin.fun" target="_blank" rel="noopener">https://dragoncoin.fun</a></li>
-          <li><strong>Official Email:</strong> <a href="mailto:contact@dragoncoin.fun">contact@dragoncoin.fun</a> (same domain)</li>
-          <li><strong>Official X:</strong> <a href="https://x.com/DragonCoinDRC" target="_blank" rel="noopener">@DragonCoinDRC</a></li>
-          <li><strong>Contract (BSC):</strong> <span class="mono">0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b</span></li>
-        </ul>
-      </div>
+    <section>
+      <h2>3. Project Overview</h2>
+      <p>DragonCoin’s ecosystem consists of three core pillars: the DRC token, NFT collectibles, and the DragonWorld platform. Together, they create a self-sustaining ecosystem where users can participate in governance, earn rewards, and contribute to ecosystem expansion.</p>
     </section>
 
-    <!-- 4. Token Overview & Ecosystem -->
-    <section class="grid" style="margin-top:20px;">
-      <div class="card">
-        <h2>4. Token Overview</h2>
-        <ul class="list">
-          <li><strong>Name:</strong> DragonCoin</li>
-          <li><strong>Symbol:</strong> DRC</li>
-          <li><strong>Chain:</strong> BNB Smart Chain</li>
-          <li><strong>Standard:</strong> BEP-20</li>
-          <li><strong>Use Case (early):</strong> brand / identity / community growth</li>
-          <li><strong>Future:</strong> ecosystem staking, NFT, partner access</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h2>5. Ecosystem Plan</h2>
-        <p>
-          The ecosystem will grow in layers:
-        </p>
-        <ul class="list">
-          <li>Layer 1 — Token & branding (done)</li>
-          <li>Layer 2 — Verified presence on explorers (in progress)</li>
-          <li>Layer 3 — Full whitepaper (after verification)</li>
-          <li>Layer 4 — Community & NFT experiences</li>
-        </ul>
-      </div>
+    <section>
+      <h2>4. Tokenomics</h2>
+      <table class="tokenomics-table">
+        <tr><th>Category</th><th>Percentage</th><th>Details</th></tr>
+        <tr><td>Community & Airdrop</td><td>25%</td><td>Rewards for early supporters and community events</td></tr>
+        <tr><td>Team & Advisors</td><td>15%</td><td>Locked and vested over 12 months</td></tr>
+        <tr><td>Liquidity Pool</td><td>20%</td><td>Ensures market stability on DEX platforms</td></tr>
+        <tr><td>Marketing & Partnerships</td><td>20%</td><td>Used for ecosystem expansion and collaborations</td></tr>
+        <tr><td>Reserve Fund</td><td>20%</td><td>Future development, audits, and innovation grants</td></tr>
+      </table>
     </section>
 
-    <!-- 6. Team & Ownership -->
-    <section class="header" style="margin-top:20px;">
-      <div class="card">
-        <h2>6. Team & Ownership</h2>
-        <p>
-          DragonCoin is operated by an independent team. To reduce impersonation risks and to keep the focus on the on-chain identity,
-          the team uses the <strong>official domain email</strong> as the primary verification channel:
-          <a href="mailto:contact@dragoncoin.fun">contact@dragoncoin.fun</a>.
-        </p>
-        <p>
-          If needed, the team can:
-        </p>
-        <ul class="list">
-          <li>Sign a message from the token owner/deployer</li>
-          <li>Publish a temporary verification note on the official website</li>
-          <li>Respond from the domain-based email used in this page</li>
-        </ul>
-      </div>
+    <section>
+      <h2>5. Utility & Use Cases</h2>
+      <ul>
+        <li>Governance voting and community DAO participation</li>
+        <li>Staking for passive rewards and ecosystem incentives</li>
+        <li>Payments and utility within the DragonWorld metaverse</li>
+        <li>Access to NFT collectibles, membership perks, and exclusive events</li>
+      </ul>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-      <p>© 2025 DragonCoin (DRC). All rights reserved.</p>
-      <p>
-        <a href="mailto:contact@dragoncoin.fun">contact@dragoncoin.fun</a> ·
-        <a href="https://x.com/DragonCoinDRC" target="_blank" rel="noopener">X</a> ·
-        <a href="https://bscscan.com/token/0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b" target="_blank" rel="noopener">BscScan</a>
-      </p>
-    </footer>
-  </div>
+    <section>
+      <h2>6. Roadmap</h2>
+      <table class="roadmap-table">
+        <tr><th>Phase</th><th>Timeline</th><th>Goals</th></tr>
+        <tr><td>Phase 1</td><td>Q1 2025</td><td>Website launch, BscScan verification, brand identity</td></tr>
+        <tr><td>Phase 2</td><td>Q2 2025</td><td>NFT release and community expansion</td></tr>
+        <tr><td>Phase 3</td><td>Q3 2025</td><td>Exchange listings, staking features, and partnerships</td></tr>
+        <tr><td>Phase 4</td><td>Q4 2025</td><td>DragonWorld Beta, DAO governance, and ecosystem scaling</td></tr>
+      </table>
+    </section>
+
+    <section>
+      <h2>7. Team & Partners</h2>
+      <p>The DragonCoin team is composed of experienced blockchain developers, financial analysts, and creative strategists from across the globe. Our partners include technology providers, NFT marketplaces, and marketing agencies that share our vision of a sustainable decentralized future.</p>
+    </section>
+
+    <section>
+      <h2>8. Security & Transparency</h2>
+      <p>All DragonCoin smart contracts will be audited by reputable third-party firms to ensure code integrity and investor safety. The team commits to full transparency with published wallet addresses, locked liquidity, and verifiable treasury reports.</p>
+    </section>
+
+    <section>
+      <h2>9. Legal Disclaimer</h2>
+      <p>This document is for informational purposes only and does not constitute financial or investment advice. DragonCoin does not guarantee profits and is not liable for financial losses resulting from participation. Always conduct your own research before investing in any cryptocurrency project.</p>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 DragonCoin. All rights reserved.</p>
+  </footer>
+
 </body>
 </html>
