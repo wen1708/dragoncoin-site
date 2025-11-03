@@ -7,21 +7,18 @@
   <link rel="stylesheet" href="assets/style.css?v=20251103"/>
   <link rel="icon" href="assets/favicon.ico"/>
   <style>
-    /* ===== Fixes for nav layout & logos ===== */
+    /* Right-aligned nav links + burger */
     .nav{position:relative}
-    .nav .links{margin-left:auto; display:flex; align-items:center; gap:10px;} /* 让右侧整体靠右 */
+    .nav .links{margin-left:auto;display:flex;align-items:center;gap:10px}
     .logo img{width:26px;height:26px;display:block}
     .hero .brand-banner{display:block;margin:0 auto 16px;max-width:360px;max-height:160px;object-fit:contain}
-    @media (max-width:480px){ .hero .brand-banner{max-width:280px;max-height:140px} }
-
-    /* Burger nav (mobile) */
+    @media (max-width:480px){.hero .brand-banner{max-width:280px;max-height:140px}}
     .nav-toggle{display:none;align-items:center;justify-content:center;gap:4px;height:42px;width:46px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);cursor:pointer;transition:all .2s ease}
     .nav-toggle:hover{background:rgba(255,255,255,.12)}
     .nav-toggle-bar{display:block;width:20px;height:2px;background:#e9ecf4;border-radius:2px}
     .nav-toggle-bar+.nav-toggle-bar{margin-top:4px}
-    .nav.is-open .nav-toggle-bar:nth-child(1){transform:translateY(6px) rotate(45deg)}
-    .nav.is-open .nav-toggle-bar:nth-child(2){opacity:0}
-    .nav.is-open .nav-toggle-bar:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+    .lang-inline{display:flex;align-items:center;gap:8px;margin-left:6px}
+    .lang-inline .btn{height:38px}
     @media (max-width:820px){
       .nav{align-items:flex-start}
       .nav .links{
@@ -31,40 +28,37 @@
         max-height:0;overflow:hidden;opacity:0;transform:translateY(-6px);
         transition:max-height .25s ease,opacity .2s ease,transform .2s ease;width:min(86vw,320px)
       }
-      .nav.is-open .links{max-height:460px;opacity:1;transform:translateY(0)}
+      .nav.is-open .links{max-height:480px;opacity:1;transform:translateY(0)}
       .nav-toggle{display:inline-flex}
       .nav .links .btn{height:40px}
     }
-    /* 让语言切换在右侧且与菜单同一组（桌面靠右，移动端跟随抽屉） */
-    .lang-inline{display:flex;align-items:center;gap:8px;margin-left:6px}
-    .lang-inline .btn{height:38px}
+    .nav.is-open .nav-toggle-bar:nth-child(1){transform:translateY(6px) rotate(45deg)}
+    .nav.is-open .nav-toggle-bar:nth-child(2){opacity:0}
+    .nav.is-open .nav-toggle-bar:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
   </style>
 </head>
 <body>
   <!-- Top Nav -->
   <div class="wrap nav">
     <a href="index.html" class="logo">
-      <!-- 仅用 PNG，避免 <picture> 回退不一致；多重兜底 & 缓存参数 -->
-      <img src="assets/logo.png?v=20251103" alt="DragonCoin Logo"
-           onerror="this.onerror=null; this.src='assets/Logo.png?v=20251103';">
+      <!-- 用根目录的 logo.png；加兜底大小写 -->
+      <img src="logo.png?v=20251103" alt="DragonCoin Logo"
+           onerror="this.onerror=null; this.src='Logo.png?v=20251103';">
       DragonCoin
     </a>
 
-    <!-- Burger (mobile) -->
+    <!-- Burger -->
     <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
-      <span class="nav-toggle-bar"></span>
-      <span class="nav-toggle-bar"></span>
-      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span>
     </button>
 
-    <!-- Right side (links + language) -->
+    <!-- Right links (固定在右侧) -->
     <div class="links" id="site-nav">
       <a href="index.html" class="btn" aria-current="page">Home</a>
       <a href="about.html" class="btn">About</a>
       <a href="whitepaper.html" class="btn">Whitepaper</a>
       <a href="transparency.html" class="btn">Transparency</a>
-
-      <!-- 语言切换始终在右侧（被包含在 .links 内） -->
+      <!-- Language switch on the right -->
       <div class="lang-inline">
         <a href="index.html" class="btn" aria-current="page">EN</a>
         <a href="index_cn.html" class="btn">中文</a>
@@ -74,12 +68,11 @@
 
   <!-- Hero -->
   <section class="hero">
-    <!-- 大 Banner（同样只用 PNG，并带兜底） -->
-    <img class="brand-banner" src="assets/logo.png?v=20251103" alt="DragonCoin Banner"
-         onerror="this.onerror=null; this.src='assets/Logo.png?v=20251103';">
+    <!-- 大 banner 同样用根目录 logo -->
+    <img class="brand-banner" src="logo.png?v=20251103" alt="DragonCoin Banner"
+         onerror="this.onerror=null; this.src='Logo.png?v=20251103';">
 
     <h1>DragonCoin (DRC)</h1>
-    <!-- 恢复原始英文标语 -->
     <p>Empowering the Future of Decentralized Ecosystems</p>
 
     <div class="cta">
@@ -110,7 +103,6 @@
 
   <script src="assets/main.js?v=20251103"></script>
   <script>
-    // Burger menu
     (function(){
       const nav=document.querySelector('.nav'),toggle=document.querySelector('.nav-toggle'),links=document.getElementById('site-nav');
       if(!nav||!toggle||!links) return;
