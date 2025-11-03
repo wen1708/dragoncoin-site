@@ -4,21 +4,29 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>DragonCoin | DRC</title>
+
+  <!-- 所有图片从根目录加载 -->
   <link rel="stylesheet" href="assets/style.css?v=20251103"/>
-  <link rel="icon" href="assets/favicon.ico"/>
+  <link rel="icon" href="favicon.ico"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png"/>
+  <meta name="theme-color" content="#0a0b10"/>
+
   <style>
-    /* Right-aligned nav links + burger */
+    /* 顶部导航与语言按钮 */
     .nav{position:relative}
     .nav .links{margin-left:auto;display:flex;align-items:center;gap:10px}
     .logo img{width:26px;height:26px;display:block}
-    .hero .brand-banner{display:block;margin:0 auto 16px;max-width:360px;max-height:160px;object-fit:contain}
-    @media (max-width:480px){.hero .brand-banner{max-width:280px;max-height:140px}}
+    .lang-inline{display:flex;align-items:center;gap:8px;margin-left:6px}
+    .lang-inline .btn{height:38px}
+
+    /* 汉堡菜单 */
     .nav-toggle{display:none;align-items:center;justify-content:center;gap:4px;height:42px;width:46px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);cursor:pointer;transition:all .2s ease}
     .nav-toggle:hover{background:rgba(255,255,255,.12)}
     .nav-toggle-bar{display:block;width:20px;height:2px;background:#e9ecf4;border-radius:2px}
     .nav-toggle-bar+.nav-toggle-bar{margin-top:4px}
-    .lang-inline{display:flex;align-items:center;gap:8px;margin-left:6px}
-    .lang-inline .btn{height:38px}
+    .nav.is-open .nav-toggle-bar:nth-child(1){transform:translateY(6px) rotate(45deg)}
+    .nav.is-open .nav-toggle-bar:nth-child(2){opacity:0}
+    .nav.is-open .nav-toggle-bar:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
     @media (max-width:820px){
       .nav{align-items:flex-start}
       .nav .links{
@@ -32,33 +40,34 @@
       .nav-toggle{display:inline-flex}
       .nav .links .btn{height:40px}
     }
-    .nav.is-open .nav-toggle-bar:nth-child(1){transform:translateY(6px) rotate(45deg)}
-    .nav.is-open .nav-toggle-bar:nth-child(2){opacity:0}
-    .nav.is-open .nav-toggle-bar:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+    /* 大Logo banner */
+    .hero .brand-banner{display:block;margin:0 auto 16px;max-width:360px;max-height:160px;object-fit:contain}
+    @media (max-width:480px){.hero .brand-banner{max-width:280px;max-height:140px}}
   </style>
 </head>
 <body>
-  <!-- Top Nav -->
+  <!-- 顶部导航 -->
   <div class="wrap nav">
     <a href="index.html" class="logo">
-      <!-- 用根目录的 logo.png；加兜底大小写 -->
       <img src="logo.png?v=20251103" alt="DragonCoin Logo"
            onerror="this.onerror=null; this.src='Logo.png?v=20251103';">
       DragonCoin
     </a>
 
-    <!-- Burger -->
+    <!-- 汉堡菜单 -->
     <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
-      <span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
     </button>
 
-    <!-- Right links (固定在右侧) -->
+    <!-- 右侧链接 -->
     <div class="links" id="site-nav">
       <a href="index.html" class="btn" aria-current="page">Home</a>
       <a href="about.html" class="btn">About</a>
       <a href="whitepaper.html" class="btn">Whitepaper</a>
       <a href="transparency.html" class="btn">Transparency</a>
-      <!-- Language switch on the right -->
       <div class="lang-inline">
         <a href="index.html" class="btn" aria-current="page">EN</a>
         <a href="index_cn.html" class="btn">中文</a>
@@ -66,9 +75,8 @@
     </div>
   </div>
 
-  <!-- Hero -->
+  <!-- 主体首屏 -->
   <section class="hero">
-    <!-- 大 banner 同样用根目录 logo -->
     <img class="brand-banner" src="logo.png?v=20251103" alt="DragonCoin Banner"
          onerror="this.onerror=null; this.src='Logo.png?v=20251103';">
 
@@ -81,7 +89,7 @@
     </div>
   </section>
 
-  <!-- Content -->
+  <!-- 内容 -->
   <main class="wrap">
     <div class="grid">
       <div class="card">
@@ -104,14 +112,16 @@
   <script src="assets/main.js?v=20251103"></script>
   <script>
     (function(){
-      const nav=document.querySelector('.nav'),toggle=document.querySelector('.nav-toggle'),links=document.getElementById('site-nav');
+      const nav=document.querySelector('.nav'),
+            toggle=document.querySelector('.nav-toggle'),
+            links=document.getElementById('site-nav');
       if(!nav||!toggle||!links) return;
       const open=()=>{nav.classList.add('is-open');toggle.setAttribute('aria-expanded','true')};
       const close=()=>{nav.classList.remove('is-open');toggle.setAttribute('aria-expanded','false')};
       toggle.addEventListener('click',()=>nav.classList.contains('is-open')?close():open());
       links.querySelectorAll('a').forEach(a=>a.addEventListener('click',close));
-      document.addEventListener('click',e=>{ if(!nav.classList.contains('is-open'))return; if(!nav.contains(e.target)) close(); });
-      window.addEventListener('resize',()=>{ if(window.innerWidth>820) close(); });
+      document.addEventListener('click',e=>{if(!nav.classList.contains('is-open'))return;if(!nav.contains(e.target))close();});
+      window.addEventListener('resize',()=>{if(window.innerWidth>820)close();});
     })();
   </script>
 </body>
