@@ -12,23 +12,23 @@
   <meta name="theme-color" content="#0a0b10">
   <link rel="stylesheet" href="/assets/style.css"/>
 
+  <!-- 🖨️ 打印友好样式（PDF 导出） -->
+  <style media="print">
+    @page { size: A4; margin: 16mm 14mm; }
+    html, body { background: #fff !important; }
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+    .nav, .footer, .lang, .cta, .kpi, .hero::after { display: none !important; }
+    .hero { padding: 0 !important; border: 0 !important; box-shadow: none !important; background: #fff !important; }
+    .whitepaper-content { max-width: 100% !important; margin: 0 !important; padding: 0 !important; color: #000 !important; }
+    h1, h2, h3 { color: #000 !important; }
+    table { width: 100% !important; border-collapse: collapse !important; }
+    th, td { border: 1px solid #000 !important; }
+    thead { display: table-header-group; }
+    a[href^="http"]:after { content: " (" attr(href) ")"; font-size: 10pt; color: #555; }
+  </style>
+
   <style>
-    @keyframes fadeInUp { from {opacity:0;transform:translateY(16px);} to {opacity:1;transform:translateY(0);} }
     @keyframes floatUp {0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);} }
-    @keyframes softGlow {0%,100%{box-shadow:0 0 0 rgba(0,255,255,0);}50%{box-shadow:0 0 14px rgba(0,180,255,0.25);} }
-    body .wrap {animation:fadeInUp .55s ease-out;}
-    .nav {gap:1.5rem;backdrop-filter:blur(6px);}
-    .logo{display:flex;align-items:center;gap:6px;font-weight:600;font-size:1.05rem;}
-    .logo img{height:32px;width:auto;filter:drop-shadow(0 0 4px rgba(255,255,255,0.15));animation:softGlow 5.5s ease-in-out infinite;}
-    .nav .links{display:flex;gap:10px;}
-    .nav .links .btn{position:relative;padding:6px 14px;font-size:.95rem;font-weight:500;border-radius:6px;transition:background .18s ease,color .18s ease,transform .18s ease;}
-    .nav .links .btn[aria-current="page"]{background:rgba(255,255,255,0.08);color:#fff;}
-    .lang{display:flex;gap:6px;}
-    .lang button{background:rgba(255,255,255,0.08);border:none;border-radius:6px;padding:4px 10px;color:#fff;cursor:pointer;font-weight:500;font-size:.8rem;transition:background .15s,transform .15s;}
-    .lang button:hover{background:rgba(255,255,255,0.16);transform:translateY(-1px);}
-    .lang button.active{background:#fff;color:#000;}
-    .hero{position:relative;overflow:hidden;}
-    .hero::after{content:"";position:absolute;top:-120px;right:-160px;width:280px;height:280px;background:radial-gradient(circle,rgba(0,226,255,0.25)0%,rgba(0,226,255,0)70%);filter:blur(6px);}
     .hero img.banner{max-width:360px;margin-bottom:12px;animation:floatUp 6s ease-in-out infinite;}
     .whitepaper-content{max-width:900px;margin:60px auto;padding:0 20px;line-height:1.8;color:#e5e5e5;}
     .whitepaper-content h2{color:#00bfff;border-left:4px solid #00bfff;padding-left:10px;margin-top:48px;font-size:1.6rem;}
@@ -68,31 +68,35 @@
     <!-- 白皮书正文 -->
     <main class="whitepaper-content">
       <h2>1. 项目简介（Introduction）</h2>
-      <p>DragonCoin（DRC）是一个将文化符号与区块链实用性结合的去中心化数字资产。灵感源自“龙”这一象征繁荣、团结与力量的全球性意象，DragonCoin 致力于构建一个以社区赋能与透明治理为基础的开放生态。</p>
+      <p>DragonCoin（DRC）是一个将文化符号与区块链实用性结合的去中心化数字资产。灵感源自“龙”这一象征繁荣、团结与力量的全球意象，DragonCoin 致力于以公开透明与社区协作为基础，构建包容、可持续的去中心化生态。</p>
 
       <h2>2. 愿景与使命（Mission & Vision）</h2>
       <p><strong>使命：</strong> 构建一个由社区驱动、透明可验证、面向实用性的代币经济体系。</p>
-      <p><strong>愿景：</strong> 连接数字资产与文化身份，使区块链既有意义又可持续。</p>
+      <p><strong>愿景：</strong> 连接数字资产与文化身份，使区块链既有意义也具备长期可持续性。</p>
 
       <h2>3. 技术架构（Technical Architecture）</h2>
       <ul class="list">
         <li><strong>标准：</strong> BNB Smart Chain 上的 BEP-20</li>
         <li><strong>合约：</strong> <a class="mono" target="_blank" href="https://bscscan.com/token/0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b">0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b</a></li>
-        <li><strong>审计：</strong> 外部审计计划进行中；合约在 BscScan 上可公开验证。</li>
-        <li><strong>可扩展性：</strong> 随采用度提升，路线图涵盖跨链与 Layer-2 兼容。</li>
+        <li><strong>审计：</strong> 外部审计计划进行中；所有合约可在 BscScan 上公开验证。</li>
+        <li><strong>可扩展性：</strong> 随采用度提高，路线图包含跨链与 Layer-2 兼容。</li>
       </ul>
 
       <h2>4. 代币经济（Tokenomics）</h2>
       <p><strong>总量：</strong> 10,000,000,000 DRC（固定）</p>
       <table class="tokenomics-table">
-        <tr><th>分配项</th><th>比例</th><th>数量 (DRC)</th><th>锁仓 / 说明</th></tr>
-        <tr><td>社区空投与奖励</td><td>30%</td><td>3,000,000,000</td><td>活动/任务发放；无锁仓</td></tr>
-        <tr><td>流动性池（LP）</td><td>25%</td><td>2,500,000,000</td><td>初始 DRC-BNB；LP 代币约锁 6 个月</td></tr>
-        <tr><td>生态开发</td><td>20%</td><td>2,000,000,000</td><td>DApp、NFT、合作；约锁 9 个月</td></tr>
-        <tr><td>团队与顾问</td><td>15%</td><td>1,500,000,000</td><td>TGE 后约 12 个月线性释放</td></tr>
-        <tr><td>储备基金</td><td>10%</td><td>1,000,000,000</td><td>约锁 18 个月，用于增长/应急</td></tr>
+        <thead>
+          <tr><th>分配项</th><th>比例</th><th>数量 (DRC)</th><th>锁仓 / 说明</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>社区空投与奖励</td><td>30%</td><td>3,000,000,000</td><td>活动/任务发放；无锁仓</td></tr>
+          <tr><td>流动性池（LP）</td><td>25%</td><td>2,500,000,000</td><td>初始 DRC-BNB；LP 代币约锁 6 个月</td></tr>
+          <tr><td>生态开发</td><td>20%</td><td>2,000,000,000</td><td>DApp、NFT、合作；约锁 9 个月</td></tr>
+          <tr><td>团队与顾问</td><td>15%</td><td>1,500,000,000</td><td>TGE 后约 12 个月线性释放</td></tr>
+          <tr><td>储备基金</td><td>10%</td><td>1,000,000,000</td><td>约锁 18 个月，用于增长/应急</td></tr>
+        </tbody>
       </table>
-      <p class="note mt-12">具体锁仓/归属将通过可信第三方（如 PinkLock/TeamFinance）执行，并在 BscScan 完成信息核验后于透明页公开所有链接。</p>
+      <p class="note mt-12">具体锁仓/归属将通过可信第三方（如 PinkLock / TeamFinance）执行，并在 BscScan 信息核验完成后于透明页公开所有链接。</p>
 
       <h2>5. 使用场景（Utilities & Use Cases）</h2>
       <ul class="list">
@@ -102,33 +106,33 @@
         <li>NFT 权益、会员福利与专属活动</li>
       </ul>
 
-      <h2>6. 路线图（Roadmap，已更新 — 2025 年 Q4）</h2>
+      <h2>6. 路线图（Roadmap，已更新：2025 年 Q4）</h2>
       <table class="roadmap-table">
-        <tr><th>阶段</th><th>时间</th><th>状态</th><th>目标</th></tr>
-        <tr>
-          <td>Phase 1</td><td>2025 Q1–Q2</td><td>✅ 已完成</td>
-          <td>官网上线；域名邮箱启用；BscScan 初次提交</td>
-        </tr>
-        <tr>
-          <td>Phase 2</td><td>2025 Q3</td><td>✅ 已完成</td>
-          <td>透明页上线；BscScan 二次提交；社区渠道启动</td>
-        </tr>
-        <tr>
-          <td>Phase 3</td><td><strong>2025 Q4</strong></td><td>🟡 进行中</td>
-          <td>发布白皮书 v1.0；锁仓与 LP 执行方案确认；安排审计</td>
-        </tr>
-        <tr>
-          <td>Phase 4</td><td>2026 Q1</td><td>🔜 计划中</td>
-          <td>NFT 系列与社区活动</td>
-        </tr>
-        <tr>
-          <td>Phase 5</td><td>2026 Q2</td><td>🔜 计划中</td>
-          <td>质押上线；交易所（DEX/CEX）对接；DAO 启动</td>
-        </tr>
-        <tr>
-          <td>Phase 6</td><td>2026 Q3–Q4</td><td>🔜 计划中</td>
-          <td>DragonWorld Beta；治理扩展；生态规模化</td>
-        </tr>
+        <thead>
+          <tr><th>阶段</th><th>时间</th><th>状态</th><th>目标</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Phase 1</td><td>2025 Q1–Q2</td><td>✅ 已完成</td>
+            <td>官网上线；域名邮箱启用；BscScan 初次提交</td>
+          </tr>
+          <tr>
+            <td>Phase 2</td><td>2025 Q3</td><td>✅ 已完成</td>
+            <td>透明页上线；BscScan 二次提交；社区渠道启动</td>
+          </tr>
+          <tr>
+            <td>Phase 3</td><td><strong>2025 Q4</strong></td><td>🟡 进行中</td>
+            <td>发布白皮书 v1.0；确认锁仓与 LP 执行方案；安排审计</td>
+          </tr>
+          <tr>
+            <td>Phase 4</td><td>2026 Q1</td><td>🔜 计划中</td>
+            <td>NFT 系列与社区活动</td>
+          </tr>
+          <tr>
+            <td>Phase 5</td><td>2026 Q2–Q3</td><td>🔜 计划中</td>
+            <td>质押、DAO、交易所对接</td>
+          </tr>
+        </tbody>
       </table>
 
       <h2>7. 治理与社区（Governance & Community）</h2>
@@ -143,13 +147,14 @@
       <h2>10. 官方信息（Contact & Links）</h2>
       <ul class="list">
         <li>官方网站：<a href="https://dragoncoin.fun" target="_blank">dragoncoin.fun</a></li>
-        <li>电子邮件：<a href="mailto:contact@dragoncoin.fun">contact@dragoncoin.fun</a></li>
+        <li>电子邮箱：<a href="mailto:contact@dragoncoin.fun">contact@dragoncoin.fun</a></li>
         <li>BscScan：<a href="https://bscscan.com/token/0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b" target="_blank">查看合约</a></li>
         <li>X（Twitter）：<a href="https://x.com/DragonCoinDRC" target="_blank">@DragonCoinDRC</a></li>
       </ul>
 
       <p class="center mt-24">
         <a class="btn" href="/transparency.html">前往透明页</a>
+        <button onclick="window.print()" class="btn primary">🖨️ 打印 / 导出 PDF</button>
       </p>
     </main>
 
@@ -157,8 +162,7 @@
       <p>© 2025 DragonCoin (DRC). All rights reserved.</p>
       <p>
         <a href="mailto:contact@dragoncoin.fun">contact@dragoncoin.fun</a> ·
-        <a href="https://x.com/DragonCoinDRC" target="_blank">X</a> ·
-        <a href="https://bscscan.com/token/0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b" target="_blank">BscScan</a>
+        <a href="https://x.com/DragonCoinDRC" target="_blank">X</a>
       </p>
     </footer>
   </div>
