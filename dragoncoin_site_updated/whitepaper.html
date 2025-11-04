@@ -1,48 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DragonCoin (DRC) — Whitepaper v1.0</title>
-  <meta name="description" content="DragonCoin (DRC) official whitepaper v1.0 — mission, tokenomics, roadmap, governance, transparency." />
-
-  <!-- Root assets (same as homepage) -->
+  <meta name="description" content="DragonCoin (DRC) Official Whitepaper v1.0 — Vision, Tokenomics, Roadmap, Governance, and Transparency." />
   <link rel="icon" href="/favicon.ico?v=2" sizes="any">
   <link rel="apple-touch-icon" href="/dragoncoin_token_icon_512.png">
   <meta name="theme-color" content="#0a0b10">
   <link rel="stylesheet" href="/assets/style.css"/>
 
+  <!-- 🖨️ Print-friendly CSS -->
+  <style media="print">
+    @page { size: A4; margin: 16mm 14mm; }
+    html, body { background: #fff !important; }
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+    .nav, .footer, .lang, .cta, .kpi, .hero::after { display: none !important; }
+    .hero { padding: 0 !important; border: 0 !important; box-shadow: none !important; background: #fff !important; }
+    .whitepaper-content { max-width: 100% !important; margin: 0 !important; padding: 0 !important; color: #000 !important; }
+    h1, h2, h3 { color: #000 !important; }
+    th, td { border: 1px solid #000 !important; }
+    a[href^="http"]:after { content: " (" attr(href) ")"; font-size: 10pt; color: #555; }
+  </style>
+
   <style>
-    @keyframes fadeInUp { from {opacity:0;transform:translateY(16px);} to {opacity:1;transform:translateY(0);} }
     @keyframes floatUp {0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);} }
-    @keyframes softGlow {0%,100%{box-shadow:0 0 0 rgba(0,255,255,0);}50%{box-shadow:0 0 14px rgba(0,180,255,0.25);} }
-    body .wrap {animation:fadeInUp .55s ease-out;}
-    .nav {gap:1.5rem;backdrop-filter:blur(6px);}
-    .logo{display:flex;align-items:center;gap:6px;font-weight:600;font-size:1.05rem;}
-    .logo img{height:32px;width:auto;filter:drop-shadow(0 0 4px rgba(255,255,255,0.15));animation:softGlow 5.5s ease-in-out infinite;}
-    .nav .links{display:flex;gap:10px;}
-    .nav .links .btn{position:relative;padding:6px 14px;font-size:.95rem;font-weight:500;border-radius:6px;transition:background .18s ease,color .18s ease,transform .18s ease;}
-    .nav .links .btn[aria-current="page"]{background:rgba(255,255,255,0.08);color:#fff;}
-    .lang{display:flex;gap:6px;}
-    .lang button{background:rgba(255,255,255,0.08);border:none;border-radius:6px;padding:4px 10px;color:#fff;cursor:pointer;font-weight:500;font-size:.8rem;transition:background .15s,transform .15s;}
-    .lang button:hover{background:rgba(255,255,255,0.16);transform:translateY(-1px);}
-    .lang button.active{background:#fff;color:#000;}
-    .hero{position:relative;overflow:hidden;}
-    .hero::after{content:"";position:absolute;top:-120px;right:-160px;width:280px;height:280px;background:radial-gradient(circle,rgba(0,226,255,0.25)0%,rgba(0,226,255,0)70%);filter:blur(6px);}
     .hero img.banner{max-width:360px;margin-bottom:12px;animation:floatUp 6s ease-in-out infinite;}
     .whitepaper-content{max-width:900px;margin:60px auto;padding:0 20px;line-height:1.8;color:#e5e5e5;}
     .whitepaper-content h2{color:#00bfff;border-left:4px solid #00bfff;padding-left:10px;margin-top:48px;font-size:1.6rem;}
     .whitepaper-content p{color:#d6d6d6;margin:12px 0;}
-    .tokenomics-table,.roadmap-table{width:100%;border-collapse:collapse;margin-top:16px;font-size:.95rem;}
-    .tokenomics-table th,.tokenomics-table td,.roadmap-table th,.roadmap-table td{border:1px solid rgba(255,255,255,0.15);padding:10px 12px;text-align:left;}
-    .tokenomics-table th,.roadmap-table th{background:#1a1f27;color:#00bfff;}
-    .tokenomics-table tr:nth-child(even),.roadmap-table tr:nth-child(even){background:#12151b;}
-    .note{font-size:.9rem;color:#9aa0b2}
   </style>
 </head>
+
 <body>
   <div class="wrap">
-    <!-- Top Nav (same structure as homepage) -->
     <nav class="nav">
       <div class="logo"><img src="/dragoncoin_token_icon_512.png" alt="DragonCoin Logo"/>DragonCoin</div>
       <div class="links">
@@ -53,113 +44,78 @@
         <a href="https://x.com/DragonCoinDRC" target="_blank" class="btn">X</a>
       </div>
       <div class="lang">
-        <button class="active" onclick="location.href='/whitepaper.html'">EN</button>
+        <button class="active">EN</button>
         <button onclick="location.href='/whitepaper_cn.html'">中文</button>
       </div>
     </nav>
 
-    <!-- Hero -->
     <section class="hero center">
       <img src="/dragoncoin_logo_3d_dark.png" alt="DragonCoin Banner" class="banner"/>
       <h1>DragonCoin (DRC) — Whitepaper v1.0</h1>
-      <p class="muted">A community-driven token on BNB Smart Chain (BEP-20), built on transparency and long-term growth.</p>
+      <p class="muted">A decentralized token built on transparency, culture, and sustainable growth.</p>
     </section>
 
-    <!-- Whitepaper Body -->
     <main class="whitepaper-content">
       <h2>1. Introduction</h2>
-      <p>DragonCoin (DRC) is a decentralized digital asset that integrates cultural symbolism and blockchain utility. Inspired by the mythical dragon — a global symbol of prosperity, unity, and power — DragonCoin aims to create an inclusive ecosystem that connects blockchain technology with community empowerment and transparent governance.</p>
+      <p>DragonCoin (DRC) is a decentralized digital asset that integrates cultural symbolism and blockchain utility. Inspired by the mythical dragon — a symbol of prosperity and unity — DragonCoin aims to empower communities through transparency and collaboration.</p>
 
       <h2>2. Mission & Vision</h2>
-      <p><strong>Mission:</strong> Build a community-driven, transparent, and utility-oriented token economy.</p>
-      <p><strong>Vision:</strong> Bridge the gap between digital assets and cultural identity — making blockchain both meaningful and sustainable.</p>
+      <p><strong>Mission:</strong> Build a transparent, utility-driven, community token economy.</p>
+      <p><strong>Vision:</strong> Bridge digital assets and cultural identity, making blockchain meaningful and sustainable.</p>
 
       <h2>3. Technical Architecture</h2>
-      <ul class="list">
+      <ul>
         <li><strong>Standard:</strong> BEP-20 on BNB Smart Chain</li>
-        <li><strong>Contract:</strong> <a class="mono" target="_blank" href="https://bscscan.com/token/0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b">0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b</a></li>
-        <li><strong>Audit:</strong> External audit to be published; code is publicly verifiable on BscScan.</li>
-        <li><strong>Scalability:</strong> Roadmap includes cross-chain and Layer-2 integrations as adoption grows.</li>
+        <li><strong>Contract:</strong> <a target="_blank" href="https://bscscan.com/token/0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b">0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b</a></li>
+        <li><strong>Audit:</strong> External review in progress; all contracts verifiable on BscScan.</li>
       </ul>
 
       <h2>4. Tokenomics</h2>
-      <p><strong>Total Supply:</strong> 10,000,000,000 DRC (fixed)</p>
       <table class="tokenomics-table">
         <tr><th>Allocation</th><th>Percentage</th><th>Amount (DRC)</th><th>Vesting / Notes</th></tr>
-        <tr><td>Community Airdrop & Rewards</td><td>30%</td><td>3,000,000,000</td><td>Campaigns & quests; no lock</td></tr>
-        <tr><td>Liquidity Pool (LP)</td><td>25%</td><td>2,500,000,000</td><td>Initial DRC-BNB; LP tokens locked ~6 months</td></tr>
-        <tr><td>Ecosystem Development</td><td>20%</td><td>2,000,000,000</td><td>DApps, NFTs, partnerships; ~9-month lock</td></tr>
-        <tr><td>Team & Advisors</td><td>15%</td><td>1,500,000,000</td><td>Linear vesting ~12 months after TGE</td></tr>
-        <tr><td>Reserve Fund</td><td>10%</td><td>1,000,000,000</td><td>Locked ~18 months for growth/emergency</td></tr>
+        <tr><td>Community Airdrop & Rewards</td><td>30%</td><td>3,000,000,000</td><td>No lock, phased campaigns</td></tr>
+        <tr><td>Liquidity Pool (LP)</td><td>25%</td><td>2,500,000,000</td><td>LP tokens locked ~6 months</td></tr>
+        <tr><td>Ecosystem Development</td><td>20%</td><td>2,000,000,000</td><td>Partnerships & DApps; lock 9 months</td></tr>
+        <tr><td>Team & Advisors</td><td>15%</td><td>1,500,000,000</td><td>12-month linear vesting after TGE</td></tr>
+        <tr><td>Reserve Fund</td><td>10%</td><td>1,000,000,000</td><td>Locked 18 months; growth & stability</td></tr>
       </table>
-      <p class="note mt-12">Exact lock/vesting will be executed via reputable lockers (e.g., PinkLock/TeamFinance) with public links on the Transparency page after BscScan verification.</p>
 
-      <h2>5. Utilities & Use Cases</h2>
-      <ul class="list">
-        <li>Governance voting and DAO participation</li>
-        <li>Staking incentives for long-term holders</li>
-        <li>Payments and utility within the DragonWorld experience</li>
-        <li>NFT access, membership perks, and exclusive events</li>
-      </ul>
-
-      <h2>6. Roadmap (Updated — Q4 2025)</h2>
+      <h2>5. Roadmap (as of Q4 2025)</h2>
       <table class="roadmap-table">
-        <tr><th>Phase</th><th>Timeline</th><th>Status</th><th>Objectives</th></tr>
-        <tr>
-          <td>Phase 1</td><td>Q1–Q2 2025</td><td>✅ Completed</td>
-          <td>Website launch; domain email live; initial BscScan submission</td>
-        </tr>
-        <tr>
-          <td>Phase 2</td><td>Q3 2025</td><td>✅ Completed</td>
-          <td>Transparency page; BscScan resubmission; community channels bootstrap</td>
-        </tr>
-        <tr>
-          <td>Phase 3</td><td><strong>Q4 2025</strong></td><td>🟡 In progress</td>
-          <td>Whitepaper v1.0 release; finalize tokenomics details; choose LP lock provider; audit scheduling</td>
-        </tr>
-        <tr>
-          <td>Phase 4</td><td>Q1 2026</td><td>🔜 Planned</td>
-          <td>NFT collection & community campaigns</td>
-        </tr>
-        <tr>
-          <td>Phase 5</td><td>Q2 2026</td><td>🔜 Planned</td>
-          <td>Staking launch; listings (DEX/CEX); DAO bootstrap</td>
-        </tr>
-        <tr>
-          <td>Phase 6</td><td>Q3–Q4 2026</td><td>🔜 Planned</td>
-          <td>DragonWorld Beta; governance expansion; ecosystem scaling</td>
-        </tr>
+        <tr><th>Phase</th><th>Timeline</th><th>Status</th><th>Goals</th></tr>
+        <tr><td>1</td><td>Q1–Q2 2025</td><td>✅ Done</td><td>Website, domain, and BscScan setup</td></tr>
+        <tr><td>2</td><td>Q3 2025</td><td>✅ Done</td><td>Transparency page, social launch</td></tr>
+        <tr><td>3</td><td><strong>Q4 2025</strong></td><td>🟡 In progress</td><td>Release Whitepaper v1.0, prepare audit</td></tr>
+        <tr><td>4</td><td>Q1 2026</td><td>🔜 Planned</td><td>NFT launch, community campaigns</td></tr>
+        <tr><td>5</td><td>Q2–Q3 2026</td><td>🔜 Planned</td><td>Staking, DAO, exchange integrations</td></tr>
       </table>
 
-      <h2>7. Governance & Community</h2>
-      <p>The DragonCoin ecosystem will transition to DAO governance where holders can vote on proposals, liquidity strategies, and ecosystem expansion. Community contributions and transparent reporting are core to long-term sustainability.</p>
+      <h2>6. Governance & Community</h2>
+      <p>DragonCoin will evolve into DAO governance where token holders can vote on proposals and liquidity strategies. Transparency and inclusiveness are at the heart of the project.</p>
 
-      <h2>8. Transparency & Security</h2>
-      <p>DragonCoin maintains full transparency — including published wallet addresses, liquidity locks, and audit results. All smart contracts remain publicly verifiable on BscScan, and updates are posted on the Transparency page.</p>
+      <h2>7. Transparency & Security</h2>
+      <p>All wallets, locks, and audits are public. DragonCoin maintains full on-chain transparency to ensure accountability and long-term trust.</p>
 
-      <h2>9. Legal Disclaimer</h2>
-      <p>This document is for informational purposes only and does not constitute financial, legal, or investment advice. Participation in DRC is voluntary and at one’s own risk. Always conduct your own research.</p>
+      <h2>8. Legal Disclaimer</h2>
+      <p>This document is for informational purposes only and does not constitute investment advice. Participate responsibly and DYOR (Do Your Own Research).</p>
 
-      <h2>10. Contact & Links</h2>
-      <ul class="list">
-        <li>Website: <a href="https://dragoncoin.fun" target="_blank">dragoncoin.fun</a></li>
-        <li>Email: <a href="mailto:contact@dragoncoin.fun">contact@dragoncoin.fun</a></li>
-        <li>BscScan: <a href="https://bscscan.com/token/0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b" target="_blank">View Contract</a></li>
-        <li>X (Twitter): <a href="https://x.com/DragonCoinDRC" target="_blank">@DragonCoinDRC</a></li>
+      <h2>9. Contact</h2>
+      <ul>
+        <li>🌐 Website: <a href="https://dragoncoin.fun" target="_blank">dragoncoin.fun</a></li>
+        <li>📧 Email: <a href="mailto:contact@dragoncoin.fun">contact@dragoncoin.fun</a></li>
+        <li>🔗 BscScan: <a href="https://bscscan.com/token/0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b" target="_blank">View Contract</a></li>
+        <li>🕊 X (Twitter): <a href="https://x.com/DragonCoinDRC" target="_blank">@DragonCoinDRC</a></li>
       </ul>
 
       <p class="center mt-24">
         <a class="btn" href="/transparency.html">Transparency Page</a>
+        <button onclick="window.print()" class="btn primary">🖨️ Print / Save as PDF</button>
       </p>
     </main>
 
     <footer class="footer">
       <p>© 2025 DragonCoin (DRC). All rights reserved.</p>
-      <p>
-        <a href="mailto:contact@dragoncoin.fun">contact@dragoncoin.fun</a> ·
-        <a href="https://x.com/DragonCoinDRC" target="_blank">X</a> ·
-        <a href="https://bscscan.com/token/0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b" target="_blank">BscScan</a>
-      </p>
+      <p><a href="mailto:contact@dragoncoin.fun">contact@dragoncoin.fun</a> · <a href="https://x.com/DragonCoinDRC" target="_blank">X</a></p>
     </footer>
   </div>
 </body>
