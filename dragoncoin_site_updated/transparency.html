@@ -2,49 +2,117 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Transparency | DragonCoin (DRC)</title>
   <meta name="description" content="DragonCoin (DRC) Transparency Page — contract, wallets, allocation, and progress updates." />
 
-  <!-- ✅ favicon 与 LOGO 路径修正 -->
+  <!-- ✅ favicon 与 LOGO -->
   <link rel="icon" href="/favicon.ico?v=2" sizes="any">
   <link rel="apple-touch-icon" href="/dragoncoin_token_icon_512.png">
   <meta name="theme-color" content="#0a0b10">
 
+  <!-- 你站点的全局样式 -->
   <link rel="stylesheet" href="/assets/style.css" />
 
   <style>
-    @keyframes fadeInUp {from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
-    @keyframes softGlow {0%,100%{box-shadow:0 0 0 rgba(0,255,255,0);}50%{box-shadow:0 0 14px rgba(0,180,255,0.25);}}
+    @keyframes fadeInUp {from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);} }
+    @keyframes softGlow {0%,100%{box-shadow:0 0 0 rgba(0,255,255,0);}50%{box-shadow:0 0 14px rgba(0,180,255,0.25);} }
     body .wrap {animation:fadeInUp .5s ease-out;}
     .logo img{height:32px;width:auto;filter:drop-shadow(0 0 4px rgba(255,255,255,0.15));animation:softGlow 6s ease-in-out infinite;}
     .dual {display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;align-items:start;}
     @media(max-width:800px){.dual{grid-template-columns:1fr;}}
+
+    /* ====== 顶部导航基础布局（不改你现有 class 命名） ====== */
+    .nav {
+      display:flex; align-items:center; justify-content:space-between;
+      gap:16px; padding:16px 20px; max-width:1100px; margin:0 auto;
+    }
+    .logo {display:flex; align-items:center; gap:10px; font-weight:700;}
+    .links {display:flex; align-items:center; flex-wrap:wrap; gap:10px;}
+    .btn {display:inline-block; padding:8px 12px; border-radius:8px; text-decoration:none;}
+
+    /* ✅ 实时数据按钮（保持蓝色醒目） */
+    .btn-live {
+      display:inline-block;
+      margin-left:12px;
+      padding:8px 14px;
+      background:linear-gradient(90deg, #0070f3, #0a84ff);
+      color:#fff; border-radius:8px; font-weight:600; font-size:14px;
+      text-decoration:none; line-height:1;
+      transition:background-color .25s ease, transform .1s ease;
+      white-space:nowrap;
+    }
+    .btn-live:hover { background:linear-gradient(90deg, #0060d0, #0a70e0); }
+    .btn-live:active { transform:translateY(1px); }
+
+    /* ====== 汉堡按钮（移动端显示） ====== */
+    .nav-toggle {
+      display:none; /* 桌面端隐藏 */
+      background:#fff; border:1px solid #e5e7eb; border-radius:8px;
+      padding:8px; cursor:pointer;
+      line-height:0; /* 去除按钮内间隙 */
+    }
+    .nav-toggle:focus { outline:2px solid #93c5fd; outline-offset:2px; }
+    .nav-toggle svg { width:22px; height:22px; }
+
+    /* ====== 移动端行为 ====== */
+    @media (max-width: 800px) {
+      .nav { padding:12px 16px; }
+      .links {
+        /* 默认折叠（隐藏） */
+        display:none;
+        flex-direction:column; align-items:flex-start;
+        gap:8px; padding:12px 0;
+      }
+      .links.open { display:flex; }
+
+      .nav-toggle { display:inline-block; }
+      .btn-live { margin-left:0; } /* 竖排时不需要左间距 */
+    }
   </style>
 </head>
 
 <body>
   <div class="wrap">
-    <!-- ✅ 顶部导航 -->
+    <!-- ✅ 顶部导航（双语 + 汉堡菜单 + 实时数据按钮） -->
     <nav class="nav">
       <div class="logo">
         <img src="/dragoncoin_token_icon_512.png" alt="DragonCoin Logo" />
         DragonCoin
       </div>
-      <div class="links">
-        <a href="/index.html" class="btn">Home</a>
-        <a href="/whitepaper.html" class="btn">Whitepaper</a>
-        <a href="/about.html" class="btn">About</a>
-        <a href="/transparency.html" class="btn" aria-current="page">Transparency</a>
-        <a href="https://x.com/DragonCoinDRC" target="_blank" class="btn">X</a>
+
+      <!-- 汉堡按钮（移动端） -->
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteLinks" aria-label="Toggle navigation">
+        <!-- 菜单图标 -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="links" id="siteLinks">
+        <a href="/index.html" class="btn">Home / 首页</a>
+        <a href="/whitepaper.html" class="btn">Whitepaper / 白皮书</a>
+        <a href="/about.html" class="btn">About / 关于</a>
+        <a href="/transparency.html" class="btn" aria-current="page">Transparency / 透明页</a>
+        <a href="https://x.com/DragonCoinDRC" target="_blank" class="btn">X / Twitter</a>
+        <a 
+          href="https://drc-transparency.vercel.app/transparency"
+          target="_blank" rel="noopener noreferrer"
+          class="btn-live"
+          aria-label="查看实时数据 / View Live Data"
+        >⚡ 查看实时数据 / View Live Data</a>
       </div>
     </nav>
 
     <!-- ✅ 页面标题 -->
     <section class="hero">
       <h1>DragonCoin Transparency 透明页</h1>
-      <p class="muted">All key data and allocation information of the DragonCoin project are published here for full transparency.<br>
-      DragonCoin 项目的所有核心数据与分配信息都将在此公开透明。</p>
+      <p class="muted">
+        All key data and allocation information of the DragonCoin project are published here for full transparency.<br>
+        DragonCoin 项目的所有核心数据与分配信息都将在此公开透明。
+      </p>
     </section>
 
     <!-- ✅ 内容区 -->
@@ -56,9 +124,8 @@
           <p><strong>Token:</strong> DragonCoin (DRC)</p>
           <p><strong>Total Supply:</strong> 10,000,000,000 DRC</p>
           <p><strong>Standard:</strong> BEP-20 on BNB Smart Chain</p>
-          <p><strong>Contract Address:</strong>  
-            <a href="https://bscscan.com/token/0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b" 
-               target="_blank" class="mono">
+          <p><strong>Contract Address:</strong>
+            <a href="https://bscscan.com/token/0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b" target="_blank" class="mono">
               0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b
             </a>
           </p>
@@ -69,9 +136,8 @@
           <p><strong>代币名称：</strong> DragonCoin (DRC)</p>
           <p><strong>发行总量：</strong> 10,000,000,000 DRC</p>
           <p><strong>标准：</strong> BNB 智能链 BEP-20</p>
-          <p><strong>合约地址：</strong>  
-            <a href="https://bscscan.com/token/0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b" 
-               target="_blank" class="mono">
+          <p><strong>合约地址：</strong>
+            <a href="https://bscscan.com/token/0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b" target="_blank" class="mono">
               0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b
             </a>
           </p>
@@ -146,7 +212,7 @@
       </div>
 
       <p class="center mt-32">
-        <a class="btn" href="/index.html">← Back to Home 返回首页</a>
+        <a class="btn" href="/index.html">← Back to Home / 返回首页</a>
       </p>
     </main>
 
@@ -154,10 +220,32 @@
       <p>© 2025 DragonCoin (DRC). All rights reserved.</p>
       <p>
         <a href="mailto:contact@dragoncoin.fun">contact@dragoncoin.fun</a> ·
-        <a href="https://x.com/DragonCoinDRC" target="_blank">X</a> ·
+        <a href="https://x.com/DragonCoinDRC" target="_blank">X / Twitter</a> ·
         <a href="https://bscscan.com/token/0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b" target="_blank">BscScan</a>
       </p>
     </footer>
   </div>
+
+  <!-- ✅ 极简脚本：控制汉堡菜单开合，无第三方依赖 -->
+  <script>
+    (function(){
+      var btn = document.getElementById('navToggle');
+      var links = document.getElementById('siteLinks');
+      if (!btn || !links) return;
+
+      btn.addEventListener('click', function(){
+        var open = links.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+
+      // 可选：点击链接后在移动端自动收起
+      links.addEventListener('click', function(e){
+        if (e.target.tagName === 'A' && window.innerWidth <= 800) {
+          links.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
