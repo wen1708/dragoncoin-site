@@ -1,6 +1,244 @@
-<a 
-  href="https://drc-transparency.vercel.app/transparency"
-  target="_blank" rel="noopener noreferrer"
-  class="btn-live"
-  aria-label="View Live Data / 查看实时数据"
->⚡ View Live Data / 查看实时数据</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Transparency | DragonCoin (DRC)</title>
+  <meta name="description" content="DragonCoin (DRC) Transparency Page — contract, wallets, allocation, and progress updates." />
+
+  <!-- ✅ favicon 与 LOGO -->
+  <link rel="icon" href="/favicon.ico?v=2" sizes="any">
+  <link rel="apple-touch-icon" href="/dragoncoin_token_icon_512.png">
+  <meta name="theme-color" content="#0a0b10">
+
+  <!-- 全站样式 -->
+  <link rel="stylesheet" href="/assets/style.css" />
+
+  <style>
+    @keyframes fadeInUp {from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);} }
+    @keyframes softGlow {0%,100%{box-shadow:0 0 0 rgba(0,255,255,0);}50%{box-shadow:0 0 14px rgba(0,180,255,0.25);} }
+    body .wrap {animation:fadeInUp .5s ease-out;}
+    .logo img{height:32px;width:auto;filter:drop-shadow(0 0 4px rgba(255,255,255,0.15));animation:softGlow 6s ease-in-out infinite;}
+    .dual {display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;align-items:start;}
+    @media(max-width:800px){.dual{grid-template-columns:1fr;}}
+
+    /* ===== 顶部导航 ===== */
+    .nav {
+      display:flex; align-items:center; justify-content:space-between;
+      gap:16px; padding:16px 20px; max-width:1100px; margin:0 auto;
+    }
+    .logo {display:flex; align-items:center; gap:10px; font-weight:700;}
+    .links {display:flex; align-items:center; flex-wrap:wrap; gap:10px;}
+    .btn {display:inline-block; padding:8px 12px; border-radius:8px; text-decoration:none;}
+
+    /* ✅ 实时数据按钮（蓝色醒目） */
+    .btn-live {
+      display:inline-block;
+      margin-left:12px;
+      padding:8px 14px;
+      background:linear-gradient(90deg, #0070f3, #0a84ff);
+      color:#fff; border-radius:8px; font-weight:600; font-size:14px;
+      text-decoration:none; line-height:1;
+      transition:background-color .25s ease, transform .1s ease;
+      white-space:nowrap;
+    }
+    .btn-live:hover { background:linear-gradient(90deg, #0060d0, #0a70e0); }
+    .btn-live:active { transform:translateY(1px); }
+
+    /* ===== 汉堡按钮（移动端） ===== */
+    .nav-toggle {
+      display:none;
+      background:#fff; border:1px solid #e5e7eb; border-radius:8px;
+      padding:8px; cursor:pointer; line-height:0;
+    }
+    .nav-toggle:focus { outline:2px solid #93c5fd; outline-offset:2px; }
+    .nav-toggle svg { width:22px; height:22px; }
+
+    /* ===== 移动端行为 ===== */
+    @media (max-width: 800px) {
+      .nav { padding:12px 16px; }
+      .links {
+        display:none;
+        flex-direction:column; align-items:flex-start;
+        gap:8px; padding:12px 0;
+      }
+      .links.open { display:flex; }
+      .nav-toggle { display:inline-block; }
+      .btn-live { margin-left:0; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <!-- ✅ 顶部导航（英文 / 中文 + 汉堡菜单） -->
+    <nav class="nav">
+      <div class="logo">
+        <img src="/dragoncoin_token_icon_512.png" alt="DragonCoin Logo" />
+        DragonCoin
+      </div>
+
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteLinks" aria-label="Toggle navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="links" id="siteLinks">
+        <a href="/index.html" class="btn">Home / 首页</a>
+        <a href="/whitepaper.html" class="btn">Whitepaper / 白皮书</a>
+        <a href="/about.html" class="btn">About / 关于</a>
+        <a href="/transparency.html" class="btn" aria-current="page">Transparency / 透明页</a>
+        <a href="https://x.com/DragonCoinDRC" target="_blank" class="btn">Twitter / X</a>
+        <a 
+          href="https://drc-transparency.vercel.app/transparency"
+          target="_blank" rel="noopener noreferrer"
+          class="btn-live"
+          aria-label="View Live Data / 查看实时数据"
+        >⚡ View Live Data / 查看实时数据</a>
+      </div>
+    </nav>
+
+    <!-- ✅ 页面标题 -->
+    <section class="hero">
+      <h1>DragonCoin Transparency / 透明页</h1>
+      <p class="muted">
+        All key data and allocation information of the DragonCoin project are published here for full transparency.<br>
+        DragonCoin 项目的所有核心数据与分配信息都将在此公开透明。
+      </p>
+    </section>
+
+    <!-- ✅ 内容区 -->
+    <main class="whitepaper-content">
+
+      <div class="dual">
+        <div>
+          <h2>1. Contract Information</h2>
+          <p><strong>Token:</strong> DragonCoin (DRC)</p>
+          <p><strong>Total Supply:</strong> 10,000,000,000 DRC</p>
+          <p><strong>Standard:</strong> BEP-20 on BNB Smart Chain</p>
+          <p><strong>Contract Address:</strong>
+            <a href="https://bscscan.com/token/0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b" target="_blank" class="mono">
+              0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b
+            </a>
+          </p>
+        </div>
+
+        <div>
+          <h2>合约信息</h2>
+          <p><strong>代币名称：</strong> DragonCoin (DRC)</p>
+          <p><strong>发行总量：</strong> 10,000,000,000 DRC</p>
+          <p><strong>标准：</strong> BNB 智能链 BEP-20</p>
+          <p><strong>合约地址：</strong>
+            <a href="https://bscscan.com/token/0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b" target="_blank" class="mono">
+              0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b
+            </a>
+          </p>
+        </div>
+      </div>
+
+      <hr class="mt-24 mb-24"/>
+
+      <div class="dual">
+        <div>
+          <h2>2. Token Allocation</h2>
+          <table class="tokenomics-table">
+            <tr><th>Allocation</th><th>Percentage</th><th>Amount (DRC)</th><th>Notes</th></tr>
+            <tr><td>Community & Airdrop</td><td>30%</td><td>3,000,000,000</td><td>Campaigns & rewards</td></tr>
+            <tr><td>Liquidity Pool</td><td>25%</td><td>2,500,000,000</td><td>Initial LP, locked 6 months</td></tr>
+            <tr><td>Ecosystem Development</td><td>20%</td><td>2,000,000,000</td><td>DApps, NFTs, partnerships</td></tr>
+            <tr><td>Team & Advisors</td><td>15%</td><td>1,500,000,000</td><td>Linear vesting 12 months</td></tr>
+            <tr><td>Reserve Fund</td><td>10%</td><td>1,000,000,000</td><td>Locked ~18 months</td></tr>
+          </table>
+        </div>
+
+        <div>
+          <h2>代币分配</h2>
+          <table class="tokenomics-table">
+            <tr><th>分配项</th><th>比例</th><th>数量 (DRC)</th><th>说明</th></tr>
+            <tr><td>社区空投与奖励</td><td>30%</td><td>3,000,000,000</td><td>阶段性活动，无锁仓</td></tr>
+            <tr><td>流动性池</td><td>25%</td><td>2,500,000,000</td><td>初始 DRC-BNB 对，锁 6 个月</td></tr>
+            <tr><td>生态开发</td><td>20%</td><td>2,000,000,000</td><td>DApp / NFT / 合作</td></tr>
+            <tr><td>团队与顾问</td><td>15%</td><td>1,500,000,000</td><td>线性释放，TGE 后 12 个月</td></tr>
+            <tr><td>储备基金</td><td>10%</td><td>1,000,000,000</td><td>锁 18 个月，用于应急与扩展</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <hr class="mt-24 mb-24"/>
+
+      <div class="dual">
+        <div>
+          <h2>3. Verification Progress</h2>
+          <ul>
+            <li>✅ Official domain verified</li>
+            <li>✅ contact@dragoncoin.fun verified</li>
+            <li>⏳ BscScan re-review in progress</li>
+            <li>📘 Whitepaper v1.0 preparation started</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2>验证进度</h2>
+          <ul>
+            <li>✅ 官网域名验证完成</li>
+            <li>✅ 官方邮箱验证完成</li>
+            <li>⏳ BscScan 信息复审中</li>
+            <li>📘 白皮书 v1.0 准备中</li>
+          </ul>
+        </div>
+      </div>
+
+      <hr class="mt-24 mb-24"/>
+
+      <div class="dual">
+        <div>
+          <h2>4. Transparency Commitment</h2>
+          <p>DragonCoin is fully committed to open data and transparency.  
+          All liquidity locks and vesting schedules will be published here with verification links.</p>
+        </div>
+        <div>
+          <h2>透明承诺</h2>
+          <p>DragonCoin 致力于公开透明。  
+          所有锁仓与释放信息将于此页公布，并附上第三方验证链接。</p>
+        </div>
+      </div>
+
+      <p class="center mt-32">
+        <a class="btn" href="/index.html">← Back to Home / 返回首页</a>
+      </p>
+    </main>
+
+    <footer class="footer">
+      <p>© 2025 DragonCoin (DRC). All rights reserved.</p>
+      <p>
+        <a href="mailto:contact@dragoncoin.fun">contact@dragoncoin.fun</a> ·
+        <a href="https://x.com/DragonCoinDRC" target="_blank">Twitter / X</a> ·
+        <a href="https://bscscan.com/token/0x457C1274ff9B4e3c35b518A63D9DA566faf9D09b" target="_blank">BscScan</a>
+      </p>
+    </footer>
+  </div>
+
+  <script>
+    (function(){
+      var btn = document.getElementById('navToggle');
+      var links = document.getElementById('siteLinks');
+      if (!btn || !links) return;
+
+      btn.addEventListener('click', function(){
+        var open = links.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+
+      links.addEventListener('click', function(e){
+        if (e.target.tagName === 'A' && window.innerWidth <= 800) {
+          links.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
